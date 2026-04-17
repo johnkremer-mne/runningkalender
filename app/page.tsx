@@ -2,12 +2,19 @@
 
 import { useState } from "react"
 
+type Race = {
+  name: string
+  date: string
+  location: string
+  type: "road" | "trail" | "ultra"
+  link?: string
+}
+
 export default function Home() {
-
   const [search, setSearch] = useState("")
-  const [filter, setFilter] = useState("all")
+  const [filter, setFilter] = useState<"all" | "road" | "trail" | "ultra">("all")
 
-  const races = [
+  const races: Race[] = [
     {
       name: "Kapetanov Trail",
       date: "2026-01-17",
@@ -30,7 +37,6 @@ export default function Home() {
     {
       name: "Boka Bay Trail",
       date: "2026-04-25",
-      displayDate: "25–26 Apr 2026",
       location: "Kotor",
       type: "trail",
       link: "https://www.bokabaytrail.com"
@@ -65,40 +71,48 @@ export default function Home() {
     {
       name: "Prokletije Trail 29K",
       date: "2026-09-19",
-      displayDate: "19 Sep 2026",
       location: "Plav",
       type: "trail",
-      link: "https://itra.run/Races/RaceDetails/Prokletije.Trail.BLUE.29K/2026/114423"
+      link:
+        "https://itra.run/Races/RaceDetails/Prokletije.Trail.BLUE.29K/2026/114423"
     }
   ]
 
-  const filtered = races.filter(r =>
-    r.name.toLowerCase().includes(search.toLowerCase()) &&
-    (filter === "all" || r.type === filter)
-  )
+  // FILTER
+  const filtered = races
+    .filter((r) =>
+      r.name.toLowerCase().includes(search.toLowerCase())
+    )
+    .filter((r) => filter === "all" || r.type === filter)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
-  const grouped: Record<string, any[]> = {}
+  // GROUP BY MONTH
+  const grouped: Record<string, Race[]> = {}
 
-  filtered.forEach(r => {
-    const dateObj = new Date(r.date)
+  filtered.forEach((r) => {
+    const date = new Date(r.date)
 
-    // safety check (THIS fixes your issue)
-    const validDate = !isNaN(dateObj.getTime())
-
-    const month = validDate
-      ? dateObj.toLocaleString("en-GB", { month: "long", year: "numeric" })
-      : "Unknown"
+    const month = date.toLocaleString("en-GB", {
+      month: "long",
+      year: "numeric"
+    })
 
     if (!grouped[month]) grouped[month] = []
     grouped[month].push(r)
   })
 
   return (
-    <div style={{ padding: 30, fontFamily: "Arial", maxWidth: 900, margin: "auto" }}>
-      
+    <div
+      style={{
+        padding: 30,
+        fontFamily: "Arial",
+        maxWidth: 900,
+        margin: "auto"
+      }}
+    >
       <h1>🏃 Balkan Running Calendar</h1>
 
-      {/* Controls */}
+      {/* CONTROLS */}
       <div style={{ marginBottom: 20 }}>
         <input
           placeholder="Search race..."
@@ -107,7 +121,10 @@ export default function Home() {
           style={{ padding: 10, marginRight: 10 }}
         />
 
-        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+        <select
+          value={filter}
+          onChange={(e) => setFilter(e.target.value as any)}
+        >
           <option value="all">All</option>
           <option value="road">Road</option>
           <option value="trail">Trail</option>
@@ -115,38 +132,41 @@ export default function Home() {
         </select>
       </div>
 
-      {/* Monthly groups */}
-      {Object.keys(grouped).map(month => (
+      {/* LIST */}
+      {Object.entries(grouped).map(([month, races]) => (
         <div key={month} style={{ marginBottom: 30 }}>
-          
           <h2 style={{ borderBottom: "2px solid #ddd", paddingBottom: 5 }}>
             {month}
           </h2>
 
-          {grouped[month].map((race, index) => (
-            <div key={index} style={{
-              background: "white",
-              padding: 15,
-              margin: "10px 0",
-              borderRadius: 10,
-              boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
-            }}>
-              
-              <strong>{race.name}</strong><br />
-              {race.location}<br />
+          {races.map((race, i) => (
+            <div
+              key={i}
+              style={{
+                background: "white",
+                padding: 15,
+                margin: "10px 0",
+                borderRadius: 10,
+                boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
+              }}
+            >
+              <strong>{race.name}</strong>
+              <br />
+              {race.location}
+              <br />
 
-              {/* SAFE DATE DISPLAY */}
-              {race.displayDate || new Date(race.date).toLocaleDateString("en-GB", {
+              {new Date(race.date).toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "short",
                 year: "numeric"
-              })}<br />
+              })}
+
+              <br />
 
               <span style={{ fontSize: 12 }}>{race.type}</span>
 
-              {/* LINK */}
-              {race.link && (
-                <div style={{ marginTop: 8 }}>
+              <div style={{ marginTop: 8 }}>
+                {race.link ? (
                   <a
                     href={race.link}
                     target="_blank"
@@ -155,12 +175,14 @@ export default function Home() {
                   >
                     👉 Official race website
                   </a>
-                </div>
-              )}
-
+                ) : (
+                  <span style={{ color: "#999" }}>
+                    No official link
+                  </span>
+                )}
+              </div>
             </div>
           ))}
-
         </div>
       ))}
     </div>

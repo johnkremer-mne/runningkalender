@@ -78,21 +78,17 @@ export default function Home() {
     }
   ]
 
-  // FILTER
   const filtered = races
-    .filter((r) =>
+    .filter(r =>
       r.name.toLowerCase().includes(search.toLowerCase())
     )
-    .filter((r) => filter === "all" || r.type === filter)
+    .filter(r => filter === "all" || r.type === filter)
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
-  // GROUP BY MONTH
   const grouped: Record<string, Race[]> = {}
 
-  filtered.forEach((r) => {
-    const date = new Date(r.date)
-
-    const month = date.toLocaleString("en-GB", {
+  filtered.forEach(r => {
+    const month = new Date(r.date).toLocaleString("en-GB", {
       month: "long",
       year: "numeric"
     })
@@ -101,29 +97,57 @@ export default function Home() {
     grouped[month].push(r)
   })
 
-  return (
-    <div
-      style={{
-        padding: 30,
-        fontFamily: "Arial",
-        maxWidth: 900,
-        margin: "auto"
-      }}
-    >
-      <h1>🏃 Balkan Running Calendar</h1>
+  const badgeColor = (type: string) => {
+    if (type === "road") return "#2563eb"
+    if (type === "trail") return "#16a34a"
+    if (type === "ultra") return "#dc2626"
+    return "#999"
+  }
 
-      {/* CONTROLS */}
-      <div style={{ marginBottom: 20 }}>
+  return (
+    <div style={{ background: "#f4f5f7", minHeight: "100vh", padding: 20 }}>
+      
+      {/* HEADER */}
+      <div style={{ maxWidth: 900, margin: "0 auto 20px" }}>
+        <h1 style={{ fontSize: 34, fontWeight: 700 }}>
+          🏃 Balkan Running Calendar
+        </h1>
+        <p style={{ color: "#666" }}>
+          Discover races across Montenegro & the Balkans
+        </p>
+      </div>
+
+      {/* FILTER BAR */}
+      <div
+        style={{
+          maxWidth: 900,
+          margin: "0 auto 20px",
+          display: "flex",
+          gap: 10
+        }}
+      >
         <input
-          placeholder="Search race..."
+          placeholder="Search races..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          style={{ padding: 10, marginRight: 10 }}
+          style={{
+            flex: 1,
+            padding: 12,
+            borderRadius: 10,
+            border: "1px solid #ddd",
+            background: "white"
+          }}
         />
 
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value as any)}
+          style={{
+            padding: 12,
+            borderRadius: 10,
+            border: "1px solid #ddd",
+            background: "white"
+          }}
         >
           <option value="all">All</option>
           <option value="road">Road</option>
@@ -133,58 +157,81 @@ export default function Home() {
       </div>
 
       {/* LIST */}
-      {Object.entries(grouped).map(([month, races]) => (
-        <div key={month} style={{ marginBottom: 30 }}>
-          <h2 style={{ borderBottom: "2px solid #ddd", paddingBottom: 5 }}>
-            {month}
-          </h2>
+      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        {Object.entries(grouped).map(([month, races]) => (
+          <div key={month} style={{ marginBottom: 28 }}>
+            
+            <h2 style={{ fontSize: 18, marginBottom: 10, color: "#333" }}>
+              {month}
+            </h2>
 
-          {races.map((race, i) => (
-            <div
-              key={i}
-              style={{
-                background: "white",
-                padding: 15,
-                margin: "10px 0",
-                borderRadius: 10,
-                boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
-              }}
-            >
-              <strong>{race.name}</strong>
-              <br />
-              {race.location}
-              <br />
-
-              {new Date(race.date).toLocaleDateString("en-GB", {
-                day: "numeric",
-                month: "short",
-                year: "numeric"
-              })}
-
-              <br />
-
-              <span style={{ fontSize: 12 }}>{race.type}</span>
-
-              <div style={{ marginTop: 8 }}>
-                {race.link ? (
-                  <a
-                    href={race.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "#0077cc" }}
+            <div style={{ display: "grid", gap: 12 }}>
+              {races.map((race, i) => (
+                <a
+                  key={i}
+                  href={race.link || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit"
+                  }}
+                >
+                  <div
+                    style={{
+                      background: "white",
+                      padding: 16,
+                      borderRadius: 12,
+                      border: "1px solid #eee",
+                      transition: "0.2s",
+                      cursor: "pointer"
+                    }}
+                    onMouseOver={(e) =>
+                      (e.currentTarget.style.transform = "translateY(-2px)")
+                    }
+                    onMouseOut={(e) =>
+                      (e.currentTarget.style.transform = "translateY(0)")
+                    }
                   >
-                    👉 Official race website
-                  </a>
-                ) : (
-                  <span style={{ color: "#999" }}>
-                    No official link
-                  </span>
-                )}
-              </div>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                      <strong>{race.name}</strong>
+
+                      <span
+                        style={{
+                          fontSize: 12,
+                          padding: "4px 8px",
+                          borderRadius: 999,
+                          background: badgeColor(race.type),
+                          color: "white"
+                        }}
+                      >
+                        {race.type}
+                      </span>
+                    </div>
+
+                    <div style={{ color: "#666", marginTop: 6 }}>
+                      📍 {race.location}
+                    </div>
+
+                    <div style={{ color: "#444", marginTop: 4 }}>
+                      📅{" "}
+                      {new Date(race.date).toLocaleDateString("en-GB", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric"
+                      })}
+                    </div>
+
+                    <div style={{ marginTop: 10, fontSize: 13, color: "#2563eb" }}>
+                      {race.link ? "Open race website →" : "No official link"}
+                    </div>
+                  </div>
+                </a>
+              ))}
             </div>
-          ))}
-        </div>
-      ))}
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

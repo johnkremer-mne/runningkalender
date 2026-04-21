@@ -116,7 +116,13 @@ export default function Home() {
     .filter(r => filter === "all" || r.type === filter)
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
-  const upcoming = filtered.filter(r => new Date(r.date) >= today)
+  const upcomingAll = filtered.filter(r => new Date(r.date) >= today)
+
+const nextRace = upcomingAll.length > 0 ? upcomingAll[0] : null
+
+const upcoming = nextRace
+  ? upcomingAll.filter(r => r.date !== nextRace.date)
+  : upcomingAll
   const past = filtered.filter(r => new Date(r.date) < today)
 
   const nextRace = upcoming.length > 0 ? upcoming[0] : null

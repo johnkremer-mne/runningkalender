@@ -13,7 +13,8 @@ type Race = {
 
 export default function Home() {
   const [search, setSearch] = useState("")
-  const [filter, setFilter] = useState<"all" | "road" | "trail" | "ultra">("all")
+  const [filter, setFilter] =
+    useState<"all" | "road" | "trail" | "ultra">("all")
   const [lang, setLang] = useState<"en" | "rs">("en")
 
   const t = {
@@ -82,105 +83,37 @@ export default function Home() {
       location: "Podgorica",
       type: "ultra",
       link: "https://lastonestanding.run/"
-    },
-
-    // UPDATED PLAV RUN
-    {
-      name: "Plav Run",
-      date: "2026-05-30",
-      displayDate: "30–31 May 2026",
-      location: "Plav",
-      type: "road",
-      link: "https://plav.run/"
-    },
-
-    {
-      name: "Lovćen Trail Run",
-      date: "2026-05-30",
-      displayDate: "30–31 May 2026",
-      location: "Cetinje",
-      type: "trail",
-      link: "https://cetinjetravel.wixstudio.com/website-24/blank-4-1-2-1"
-    },
-
-    // UPDATED
-    {
-      name: "Durmitor Trail Run",
-      date: "2026-07-10",
-      displayDate: "10–12 Jul 2026",
-      location: "Žabljak",
-      type: "trail",
-      link: "https://www.durmitortrail.run/"
-    },
-
-    {
-      name: "Bjelasica Trail",
-      date: "2026-08-08",
-      location: "Kolašin",
-      type: "trail",
-      link: "https://bjelasicatrail.me"
-    },
-
-    // NEW SKY RACE
-    {
-      name: "Durmitor Sky Race",
-      date: "2026-09-05",
-      location: "Žabljak",
-      type: "trail",
-      link: "https://durmitorsky.run/"
-    },
-
-    {
-      name: "Prokletije Trail 29K",
-      date: "2026-09-19",
-      location: "Plav",
-      type: "trail",
-      link:
-        "https://itra.run/Races/RaceDetails/Prokletije.Trail.BLUE.29K/2026/114423"
-    },
-
-    {
-      name: "Podgorica Millennium Run",
-      date: "2026-10-04",
-      location: "Podgorica",
-      type: "road"
-    },
-
-    {
-      name: "Lovćen Trail",
-      date: "2026-11-15",
-      location: "Cetinje",
-      type: "trail"
     }
   ]
 
   const today = new Date()
 
-  const filtered = races
-    .filter(r =>
-      r.name.toLowerCase().includes(search.toLowerCase())
-    )
-    .filter(r => filter === "all" || r.type === filter)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-
-  const upcomingAll = filtered.filter(r => new Date(r.date) >= today)
-  const nextRace = upcomingAll.length > 0 ? upcomingAll[0] : null
-
-  const upcoming = nextRace
-    ? upcomingAll.filter(r => r.date !== nextRace.date)
-    : upcomingAll
-
-  const past = filtered.filter(r => new Date(r.date) < today)
+  const badgeColor = (type: string) => {
+    if (type === "road") return "#2563eb"
+    if (type === "trail") return "#16a34a"
+    if (type === "ultra") return "#dc2626"
+    return "#999"
+  }
 
   const getCountdown = (date: string) => {
-    const diff = new Date(date).getTime() - new Date().getTime()
-    if (diff <= 0) return "Happening now / passed"
-
+    const diff = new Date(date).getTime() - Date.now()
     const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+    if (days < 0) return "Passed"
     if (days === 0) return "Today"
     if (days === 1) return "Tomorrow"
     return `In ${days} days`
   }
+
+  const filtered = races
+    .filter(r => r.name.toLowerCase().includes(search.toLowerCase()))
+    .filter(r => filter === "all" || r.type === filter)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+
+  const upcomingAll = filtered.filter(r => new Date(r.date) >= today)
+  const nextRace = upcomingAll[0]
+
+  const upcoming = upcomingAll.filter(r => r !== nextRace)
+  const past = filtered.filter(r => new Date(r.date) < today)
 
   const groupByMonth = (list: Race[]) => {
     const grouped: Record<string, Race[]> = {}
@@ -198,65 +131,21 @@ export default function Home() {
     return grouped
   }
 
-  const badgeColor = (type: string) => {
-    if (type === "road") return "#2563eb"
-    if (type === "trail") return "#16a34a"
-    if (type === "ultra") return "#dc2626"
-    return "#999"
-  }
-
-  const renderSection = (title: string, data: Record<string, Race[]>) => (
-    <div style={{ marginBottom: 40 }}>
-      <h2 style={{ fontSize: 22 }}>{title}</h2>
-
-      {Object.entries(data).map(([month, races]) => (
-        <div key={month} style={{ marginBottom: 20 }}>
-          <h3 style={{ color: "#555" }}>{month}</h3>
-
-          <div style={{ display: "grid", gap: 12 }}>
-            {races.map((race, i) => (
-              <a
-                key={i}
-                href={race.link || "#"}
-                target="_blank"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <div style={{
-                  background: "white",
-                  padding: 16,
-                  borderRadius: 12,
-                  border: "1px solid #eee",
-                  cursor: "pointer"
-                }}>
-                  <strong>{race.name}</strong>
-                  <div>📍 {race.location}</div>
-                  <div>
-                    📅 {race.displayDate ||
-                      new Date(race.date).toLocaleDateString("en-GB")}
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-
   const langPack = t[lang]
 
   return (
     <div style={{ background: "#f4f5f7", minHeight: "100vh", padding: 20 }}>
       <div style={{ maxWidth: 1000, margin: "0 auto" }}>
 
-        {/* LANGUAGE SWITCH */}
+        {/* LANGUAGE */}
         <div style={{ textAlign: "right" }}>
           <button onClick={() => setLang(lang === "en" ? "rs" : "en")}>
-            {lang === "en" ? "🇷🇸 SR" : "🇬🇧 EN"}
+            {lang === "en" ? "SR" : "EN"}
           </button>
         </div>
 
-        <h1 style={{ fontSize: 42 }}>
+        {/* HEADER */}
+        <h1 style={{ fontSize: 42, fontWeight: 800 }}>
           🏃 Balkan Running Calendar
         </h1>
 
@@ -275,7 +164,17 @@ export default function Home() {
               <div>{langPack.next}</div>
               <h2>{nextRace.name}</h2>
               <div>📍 {nextRace.location}</div>
-              <div>⏳ {getCountdown(nextRace.date)}</div>
+              <div>📅 {getCountdown(nextRace.date)}</div>
+
+              <div style={{
+                marginTop: 10,
+                display: "inline-block",
+                padding: "4px 10px",
+                borderRadius: 999,
+                background: badgeColor(nextRace.type)
+              }}>
+                {nextRace.type}
+              </div>
             </div>
           </a>
         )}
@@ -299,8 +198,53 @@ export default function Home() {
           <option value="ultra">{langPack.ultra}</option>
         </select>
 
-        {renderSection(langPack.upcoming, groupByMonth(upcoming))}
-        {renderSection(langPack.past, groupByMonth(past))}
+        {/* UPCOMING */}
+        <h2 style={{ marginTop: 30 }}>{langPack.upcoming}</h2>
+
+        {Object.entries(groupByMonth(upcoming)).map(([month, races]) => (
+          <div key={month}>
+            <h3>{month}</h3>
+
+            {races.map((r, i) => (
+              <a key={i} href={r.link || "#"} target="_blank">
+                <div style={{
+                  background: "white",
+                  padding: 15,
+                  margin: "10px 0",
+                  borderRadius: 12,
+                  border: "1px solid #eee"
+                }}>
+                  <strong>{r.name}</strong>
+                  <div>📍 {r.location}</div>
+                  <div>📅 {getCountdown(r.date)}</div>
+                  <span style={{
+                    background: badgeColor(r.type),
+                    color: "white",
+                    padding: "3px 8px",
+                    borderRadius: 999,
+                    fontSize: 12
+                  }}>
+                    {r.type}
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        ))}
+
+        {/* PAST */}
+        <h2 style={{ marginTop: 40 }}>{langPack.past}</h2>
+        {Object.entries(groupByMonth(past)).map(([month, races]) => (
+          <div key={month}>
+            <h3>{month}</h3>
+            {races.map((r, i) => (
+              <div key={i} style={{ padding: 10, opacity: 0.6 }}>
+                {r.name}
+              </div>
+            ))}
+          </div>
+        ))}
+
       </div>
     </div>
   )

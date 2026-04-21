@@ -113,7 +113,7 @@ export default function Home() {
           🏃 Balkan Running Calendar
         </h1>
         <p style={{ color: "#666" }}>
-          Discover races across Montenegro & the Balkans
+          Discover races across Montenegro 🇲🇪
         </p>
       </div>
 

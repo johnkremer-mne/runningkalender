@@ -55,6 +55,20 @@ export default function Home() {
       type: "road"
     },
     {
+  name: "Lovćen Trail Run",
+  date: "2026-05-30",
+  location: "Cetinje",
+  type: "trail",
+  link: "https://cetinjetravel.wixstudio.com/website-24/blank-4-1-2-1"
+},
+{
+  name: "BU2 Island Mini Trail",
+  date: "2026-04-19",
+  location: "Budva",
+  type: "trail",
+  link: "https://budva3.me/bu2-island-mini-trail-2026/"
+}
+    {
       name: "Durmitor Skyrace",
       date: "2026-07-11",
       location: "Žabljak",

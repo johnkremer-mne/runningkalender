@@ -37,6 +37,7 @@ export default function Home() {
     {
       name: "Boka Bay Trail",
       date: "2026-04-25",
+      displayDate: "25–26 apr 2026",
       location: "Kotor",
       type: "trail",
       link: "https://www.bokabaytrail.com"
@@ -57,6 +58,7 @@ export default function Home() {
     {
   name: "Lovćen Trail Run",
   date: "2026-05-30",
+  displayDate: "30–31 May 2026",
   location: "Cetinje",
   type: "trail",
   link: "https://cetinjetravel.wixstudio.com/website-24/blank-4-1-2-1"
@@ -190,7 +192,7 @@ export default function Home() {
 
                   <div style={{ marginTop: 4 }}>
                     📅{" "}
-                    {new Date(race.date).toLocaleDateString("en-GB", {
+                    {race.displayDate || new Date(race.date).toLocaleDateString("en-GB", {
                       day: "numeric",
                       month: "short",
                       year: "numeric"

@@ -45,118 +45,19 @@ export default function Home() {
   }
 
   const races: Race[] = [
-    {
-      name: "Kapetanov Trail",
-      date: "2026-01-17",
-      location: "Montenegro",
-      type: "trail",
-      link: "https://live.3hercegnovi.me/event/CPT26/register",
-    },
-    {
-      name: "Durmitor Winter Run",
-      date: "2026-02-28",
-      location: "Žabljak",
-      type: "trail",
-    },
-    {
-      name: "Ultra-maraton Montenegro 2026",
-      date: "2026-03-29",
-      displayDate: "29 March 2026",
-      location: "Montenegro",
-      type: "ultra",
-      link: "https://live.3hercegnovi.me/event/PUM26/register",
-    },
-    {
-      name: "Riverside Run",
-      date: "2026-04-05",
-      displayDate: "5 April 2026",
-      location: "Danilovgrad",
-      type: "road",
-      link: "https://live.3hercegnovi.me/event/DG26/register",
-    },
-    {
-      name: "Ostrog Half Marathon",
-      date: "2026-04-11",
-      location: "Nikšić",
-      type: "road",
-      link: "https://ostroskipolumaraton.com/",
-    },
-    {
-      name: "BU2 Island Mini Trail",
-      date: "2026-04-19",
-      location: "Budva",
-      type: "trail",
-      link:
-        "https://budva3.me/bu2-island-mini-trail-2026/",
-    },
-    {
-      name: "Boka Bay Trail",
-      date: "2026-04-25",
-      displayDate: "25–26 Apr 2026",
-      location: "Kotor",
-      type: "trail",
-      link: "https://www.bokabaytrail.com",
-    },
-    {
-      name: "Last One Standing",
-      date: "2026-05-09",
-      location: "Podgorica",
-      type: "ultra",
-      link: "https://lastonestanding.run/",
-    },
-    {
-      name: "Plav Run",
-      date: "2026-05-30",
-      displayDate: "30–31 May 2026",
-      location: "Plav",
-      type: "road",
-      link: "https://plav.run/",
-    },
-    {
-      name: "Lovćen Trail Run",
-      date: "2026-05-30",
-      displayDate: "30–31 May 2026",
-      location: "Cetinje",
-      type: "trail",
-      link: "https://cetinjetravel.wixstudio.com/website-24/blank",
-    },
-    {
-      name: "Durmitor Trail Run",
-      date: "2026-07-10",
-      displayDate: "10–12 Jul 2026",
-      location: "Žabljak",
-      type: "trail",
-      link: "https://www.durmitortrail.run/",
-    },
-    {
-      name: "Bjelasica Trail",
-      date: "2026-08-08",
-      location: "Kolašin",
-      type: "trail",
-      link: "https://bjelasicatrail.me",
-    },
-    {
-      name: "Durmitor Sky Race",
-      date: "2026-09-05",
-      location: "Žabljak",
-      type: "trail",
-      link: "https://durmitorsky.run/",
-    },
-    {
-      name: "Prokletije Trail 29K",
-      date: "2026-09-19",
-      location: "Plav",
-      type: "trail",
-      link:
-        "https://itra.run/Races/RaceDetails/114422",
-    },
-    {
-      name: "Podgorica Millennium Run",
-      date: "2026-10-04",
-      location: "Podgorica",
-      type: "road",
-      link: "https://www.podgorica.run/",
-    },
+    { name: "Kapetanov Trail", date: "2026-01-17", location: "Montenegro", type: "trail", link: "https://live.3hercegnovi.me/event/CPT26/register" },
+    { name: "Durmitor Winter Run", date: "2026-02-28", location: "Žabljak", type: "trail", link: "https://durmitorsky.run/course/winter-race" },
+    { name: "Ostrog Half Marathon", date: "2026-04-11", location: "Nikšić", type: "road", link: "https://ostroskipolumaraton.com/" },
+    { name: "BU2 Island Mini Trail", date: "2026-04-19", location: "Budva", type: "trail", link: "https://budva3.me/bu2-island-mini-trail-2026/" },
+    { name: "Boka Bay Trail", date: "2026-04-25", displayDate: "25–26 Apr 2026", location: "Kotor", type: "trail", link: "https://www.bokabaytrail.com" },
+    { name: "Last One Standing", date: "2026-05-09", location: "Podgorica", type: "ultra", link: "https://lastonestanding.run/" },
+    { name: "Plav Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Plav", type: "road", link: "https://plav.run/" },
+    { name: "Lovćen Trail Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Cetinje", type: "trail", link: "https://cetinjetravel.wixstudio.com/website-24/blank-4-1-2-1" },
+    { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", link: "https://www.durmitortrail.run/" },
+    { name: "Bjelasica Trail", date: "2026-08-08", location: "Kolašin", type: "trail", link: "https://bjelasicatrail.me" },
+    { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", link: "https://durmitorsky.run/" },
+    { name: "Prokletije Trail 29K", date: "2026-09-19", location: "Plav", type: "trail", link: "https://itra.run/Races/RaceDetails/114422" },
+    { name: "Podgorica Millennium Run", date: "2026-10-04", location: "Podgorica", type: "road", link: "https://www.podgorica.run/" },
   ]
 
   const today = new Date()
@@ -179,9 +80,7 @@ export default function Home() {
   }
 
   const filtered = races
-    .filter(r =>
-      r.name.toLowerCase().includes(search.toLowerCase())
-    )
+    .filter(r => r.name.toLowerCase().includes(search.toLowerCase()))
     .filter(r => filter === "all" || r.type === filter)
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
@@ -207,18 +106,39 @@ export default function Home() {
   }
 
   const renderSection = (title: string, data: Record<string, Race[]>) => (
-    <div style={{ marginBottom: 40 }}>
-      <h2 style={{ fontSize: 22, textAlign: "center" }}>
+    <div style={{ marginBottom: 70 }}>
+      
+      <h2 style={{
+        fontSize: 22,
+        textAlign: "center",
+        marginBottom: 30,
+        position: "relative"
+      }}>
+        <span style={{
+          position: "absolute",
+          left: "50%",
+          transform: "translateX(-50%)",
+          fontSize: 80,
+          opacity: 0.05,
+          zIndex: 0
+        }}>
+          🏃
+        </span>
         {title}
       </h2>
 
       {Object.entries(data).map(([month, races]) => (
-        <div key={month} style={{ marginBottom: 20 }}>
-          <h3 style={{ color: "#666", textAlign: "center" }}>
+        <div key={month} style={{ marginBottom: 30 }}>
+
+          <h3 style={{
+            color: "#666",
+            textAlign: "center",
+            marginBottom: 18
+          }}>
             {month}
           </h3>
 
-          <div style={{ display: "grid", gap: 14 }}>
+          <div style={{ display: "grid", gap: 16 }}>
             {races.map((race, i) => (
               <a
                 key={i}
@@ -229,28 +149,46 @@ export default function Home() {
                 <div
                   style={{
                     background: "white",
-                    padding: 18,
-                    borderRadius: 14,
+                    padding: 20,
+                    borderRadius: 16,
                     border: "1px solid #eee",
+                    cursor: "pointer",
                     textAlign: "center",
+                    transition: "all 0.25s ease",
+                    boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-6px)"
+                    e.currentTarget.style.boxShadow = "0 16px 30px rgba(0,0,0,0.12)"
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)"
+                    e.currentTarget.style.boxShadow = "0 2px 10px rgba(0,0,0,0.05)"
                   }}
                 >
-                  <strong>{race.name}</strong>
-                  <div>📍 {race.location}</div>
-                  <div>
+                  <div style={{ fontWeight: 800, fontSize: 16 }}>
+                    {race.name}
+                  </div>
+
+                  <div style={{ marginTop: 6, color: "#666" }}>
+                    📍 {race.location}
+                  </div>
+
+                  <div style={{ marginTop: 4 }}>
                     📅{" "}
                     {race.displayDate ||
                       new Date(race.date).toLocaleDateString("en-GB")}
                   </div>
+
                   <div
                     style={{
-                      marginTop: 8,
+                      marginTop: 10,
                       display: "inline-block",
                       padding: "4px 10px",
                       borderRadius: 999,
                       background: badgeColor(race.type),
-                      color: "white",
                       fontSize: 12,
+                      color: "white",
                     }}
                   >
                     {race.type}
@@ -270,8 +208,17 @@ export default function Home() {
     <div style={{ background: "#f4f5f7", minHeight: "100vh", padding: 20 }}>
       <div style={{ maxWidth: 1000, margin: "0 auto" }}>
 
-        <h1 style={{ fontSize: 42, textAlign: "center" }}>
-          🏃 Balkan Running Calendar
+        <div style={{ textAlign: "right" }}>
+          <button onClick={() => setLang(lang === "en" ? "rs" : "en")}>
+            {lang === "en" ? "SR" : "EN"}
+          </button>
+        </div>
+
+        <h1 style={{ fontSize: 42, textAlign: "center", position: "relative" }}>
+          <span style={{ opacity: 0.2, position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
+            🏃
+          </span>
+          Balkan Running Calendar
         </h1>
 
         <p style={{ textAlign: "center", color: "#666" }}>
@@ -280,24 +227,64 @@ export default function Home() {
 
         {nextRace && (
           <a href={nextRace.link || "#"} target="_blank">
-            <div style={{
-              background: "linear-gradient(135deg,#2563eb,#1e40af)",
-              color: "white",
-              padding: 20,
-              borderRadius: 16,
-              marginTop: 20,
-              textAlign: "center"
-            }}>
+            <div
+              style={{
+                background: "linear-gradient(135deg,#ff4d4d,#ff7a00)",
+                color: "white",
+                padding: 20,
+                borderRadius: 16,
+                marginTop: 20,
+                textAlign: "center",
+                boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+              }}
+            >
               <div>{langPack.next}</div>
               <h2>{nextRace.name}</h2>
               <div>📍 {nextRace.location}</div>
-              <div>⏳ {getCountdown(nextRace.date)}</div>
-              <div>
-                📅 {nextRace.displayDate || new Date(nextRace.date).toLocaleDateString("en-GB")}
+
+              <div>📅 {nextRace.displayDate || new Date(nextRace.date).toLocaleDateString("en-GB")}</div>
+
+              <div style={{ marginTop: 8 }}>
+                ⏳ {getCountdown(nextRace.date)}
+              </div>
+
+              <div
+                style={{
+                  marginTop: 10,
+                  display: "inline-block",
+                  padding: "4px 10px",
+                  borderRadius: 999,
+                  background: badgeColor(nextRace.type),
+                  fontSize: 12,
+                }}
+              >
+                {nextRace.type}
               </div>
             </div>
           </a>
         )}
+
+        <input
+          placeholder={langPack.search}
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          style={{
+            width: "100%",
+            padding: 10,
+            marginTop: 20,
+            borderRadius: 10,
+            border: "1px solid #ddd",
+          }}
+        />
+
+        <div style={{ textAlign: "center", marginTop: 10 }}>
+          <select value={filter} onChange={e => setFilter(e.target.value as any)}>
+            <option value="all">{langPack.all}</option>
+            <option value="road">{langPack.road}</option>
+            <option value="trail">{langPack.trail}</option>
+            <option value="ultra">{langPack.ultra}</option>
+          </select>
+        </div>
 
         {renderSection(langPack.upcoming, groupByMonth(upcoming))}
         {renderSection(langPack.past, groupByMonth(past))}

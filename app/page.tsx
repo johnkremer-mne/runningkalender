@@ -190,7 +190,7 @@ onMouseLeave={(e) => {
         </div>
 
         <h1 style={{ fontSize: 42, textAlign: "center" }}>
-          🏃‍♂️ Balkan Running Calendar
+           Balkan Running Calendar 🏃‍♂️
         </h1>
 
         <p style={{ textAlign: "center", color: "#666" }}>

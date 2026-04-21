@@ -223,7 +223,7 @@ export default function Home() {
           style={{ width: "100%", padding: 10, marginTop: 20 }}
         />
 
-        <div style={{ textAlign: "center", marginTop: 10 }}>
+        <div style={{ textAlign: "left", marginTop: 10 }}>
           <select value={filter} onChange={e => setFilter(e.target.value as any)}>
             <option value="all">{langPack.all}</option>
             <option value="road">{langPack.road}</option>

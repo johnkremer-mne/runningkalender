@@ -75,8 +75,24 @@ export default function Home() {
       type: "trail",
       link:
         "https://itra.run/Races/RaceDetails/Prokletije.Trail.BLUE.29K/2026/114423"
+    },
+
+    // 🆕 NEW RACES
+    {
+      name: "Podgorica Millennium Run",
+      date: "2026-10-04",
+      location: "Podgorica",
+      type: "road"
+    },
+    {
+      name: "Lovćen Trail",
+      date: "2026-11-15",
+      location: "Cetinje",
+      type: "trail"
     }
   ]
+
+  const today = new Date()
 
   const filtered = races
     .filter(r =>
@@ -85,17 +101,27 @@ export default function Home() {
     .filter(r => filter === "all" || r.type === filter)
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
-  const grouped: Record<string, Race[]> = {}
+  const upcoming = filtered.filter(r => new Date(r.date) >= today)
+  const past = filtered.filter(r => new Date(r.date) < today)
 
-  filtered.forEach(r => {
-    const month = new Date(r.date).toLocaleString("en-GB", {
-      month: "long",
-      year: "numeric"
+  const groupByMonth = (list: Race[]) => {
+    const grouped: Record<string, Race[]> = {}
+
+    list.forEach(r => {
+      const month = new Date(r.date).toLocaleString("en-GB", {
+        month: "long",
+        year: "numeric"
+      })
+
+      if (!grouped[month]) grouped[month] = []
+      grouped[month].push(r)
     })
 
-    if (!grouped[month]) grouped[month] = []
-    grouped[month].push(r)
-  })
+    return grouped
+  }
+
+  const upcomingGrouped = groupByMonth(upcoming)
+  const pastGrouped = groupByMonth(past)
 
   const badgeColor = (type: string) => {
     if (type === "road") return "#2563eb"
@@ -104,133 +130,94 @@ export default function Home() {
     return "#999"
   }
 
-  return (
-    <div style={{ background: "#f4f5f7", minHeight: "100vh", padding: 20 }}>
-      
-      {/* HEADER */}
-      <div style={{ maxWidth: 900, margin: "0 auto 20px" }}>
-        <h1 style={{ fontSize: 34, fontWeight: 700 }}>
-          🏃 Balkan Running Calendar
-        </h1>
-        <p style={{ color: "#666" }}>
-          Discover races across Montenegro 🇲🇪
-        </p>
-      </div>
+  const renderSection = (title: string, data: Record<string, Race[]>) => (
+    <div style={{ marginBottom: 40 }}>
+      <h2 style={{ fontSize: 22, marginBottom: 10 }}>{title}</h2>
 
-      {/* FILTER BAR */}
-      <div
-        style={{
-          maxWidth: 900,
-          margin: "0 auto 20px",
-          display: "flex",
-          gap: 10
-        }}
-      >
-        <input
-          placeholder="Search races..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          style={{
-            flex: 1,
-            padding: 12,
-            borderRadius: 10,
-            border: "1px solid #ddd",
-            background: "white"
-          }}
-        />
+      {Object.entries(data).map(([month, races]) => (
+        <div key={month} style={{ marginBottom: 20 }}>
+          <h3 style={{ color: "#555", marginBottom: 8 }}>{month}</h3>
 
-        <select
-          value={filter}
-          onChange={(e) => setFilter(e.target.value as any)}
-          style={{
-            padding: 12,
-            borderRadius: 10,
-            border: "1px solid #ddd",
-            background: "white"
-          }}
-        >
-          <option value="all">All</option>
-          <option value="road">Road</option>
-          <option value="trail">Trail</option>
-          <option value="ultra">Ultra</option>
-        </select>
-      </div>
-
-      {/* LIST */}
-      <div style={{ maxWidth: 900, margin: "0 auto" }}>
-        {Object.entries(grouped).map(([month, races]) => (
-          <div key={month} style={{ marginBottom: 28 }}>
-            
-            <h2 style={{ fontSize: 18, marginBottom: 10, color: "#333" }}>
-              {month}
-            </h2>
-
-            <div style={{ display: "grid", gap: 12 }}>
-              {races.map((race, i) => (
-                <a
-                  key={i}
-                  href={race.link || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
+          <div style={{ display: "grid", gap: 12 }}>
+            {races.map((race, i) => (
+              <a
+                key={i}
+                href={race.link || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div
                   style={{
-                    textDecoration: "none",
-                    color: "inherit"
+                    background: "white",
+                    padding: 16,
+                    borderRadius: 12,
+                    border: "1px solid #eee"
                   }}
                 >
-                  <div
-                    style={{
-                      background: "white",
-                      padding: 16,
-                      borderRadius: 12,
-                      border: "1px solid #eee",
-                      transition: "0.2s",
-                      cursor: "pointer"
-                    }}
-                    onMouseOver={(e) =>
-                      (e.currentTarget.style.transform = "translateY(-2px)")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.style.transform = "translateY(0)")
-                    }
-                  >
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
-                      <strong>{race.name}</strong>
-
-                      <span
-                        style={{
-                          fontSize: 12,
-                          padding: "4px 8px",
-                          borderRadius: 999,
-                          background: badgeColor(race.type),
-                          color: "white"
-                        }}
-                      >
-                        {race.type}
-                      </span>
-                    </div>
-
-                    <div style={{ color: "#666", marginTop: 6 }}>
-                      📍 {race.location}
-                    </div>
-
-                    <div style={{ color: "#444", marginTop: 4 }}>
-                      📅{" "}
-                      {new Date(race.date).toLocaleDateString("en-GB", {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric"
-                      })}
-                    </div>
-
-                    <div style={{ marginTop: 10, fontSize: 13, color: "#2563eb" }}>
-                      {race.link ? "Open race website →" : "No official link"}
-                    </div>
+                  <div style={{ display: "flex", justifyContent: "space-between" }}>
+                    <strong>{race.name}</strong>
+                    <span
+                      style={{
+                        fontSize: 12,
+                        padding: "4px 8px",
+                        borderRadius: 999,
+                        background: badgeColor(race.type),
+                        color: "white"
+                      }}
+                    >
+                      {race.type}
+                    </span>
                   </div>
-                </a>
-              ))}
-            </div>
+
+                  <div style={{ color: "#666", marginTop: 6 }}>
+                    📍 {race.location}
+                  </div>
+
+                  <div style={{ marginTop: 4 }}>
+                    📅{" "}
+                    {new Date(race.date).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric"
+                    })}
+                  </div>
+                </div>
+              </a>
+            ))}
           </div>
-        ))}
+        </div>
+      ))}
+    </div>
+  )
+
+  return (
+    <div style={{ background: "#f4f5f7", minHeight: "100vh", padding: 20 }}>
+      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        <h1>🏃 Balkan Running Calendar</h1>
+
+        <div style={{ margin: "20px 0", display: "flex", gap: 10 }}>
+          <input
+            placeholder="Search races..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            style={{ flex: 1, padding: 10 }}
+          />
+
+          <select
+            value={filter}
+            onChange={(e) => setFilter(e.target.value as any)}
+          >
+            <option value="all">All</option>
+            <option value="road">Road</option>
+            <option value="trail">Trail</option>
+            <option value="ultra">Ultra</option>
+          </select>
+        </div>
+
+        {renderSection("🔥 Upcoming Races", upcomingGrouped)}
+
+        {past.length > 0 && renderSection("📦 Past Races", pastGrouped)}
       </div>
     </div>
   )

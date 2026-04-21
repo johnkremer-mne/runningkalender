@@ -133,13 +133,23 @@ export default function Home() {
               <a key={i} href={race.link || "#"} target="_blank" style={{ textDecoration: "none", color: "inherit" }}>
                 <div
                   style={{
-                    background: "white",
-                    padding: 18,
-                    borderRadius: 14,
-                    border: "1px solid #eee",
-                    textAlign: "center",
-                    cursor: "pointer",
-                  }}
+  background: "white",
+  padding: 18,
+  borderRadius: 14,
+  border: "1px solid #eee",
+  cursor: "pointer",
+  textAlign: "center",
+  transition: "all 0.2s ease",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+}}
+onMouseEnter={(e) => {
+  e.currentTarget.style.transform = "translateY(-4px)"
+  e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.12)"
+}}
+onMouseLeave={(e) => {
+  e.currentTarget.style.transform = "translateY(0)"
+  e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)"
+}}
                 >
                   <div style={{ fontWeight: 700 }}>{race.name}</div>
                   <div>📍 {race.location}</div>

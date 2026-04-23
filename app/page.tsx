@@ -84,14 +84,22 @@ export default function Home() {
     return "#999"
   }
 
-  const getCountdown = (date: string) => {
-    const diff = new Date(date).getTime() - new Date().getTime()
-    if (diff <= 0) return "Happening now / passed"
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-    if (days === 0) return "Today"
-    if (days === 1) return "Tomorrow"
-    return `In ${days} days`
-  }
+const getCountdown = (date: string) => {
+  const today = new Date()
+  const target = new Date(date)
+
+  // Normalize both to LOCAL midnight
+  today.setHours(0, 0, 0, 0)
+  target.setHours(0, 0, 0, 0)
+
+  const diff = target.getTime() - today.getTime()
+  const days = Math.round(diff / (1000 * 60 * 60 * 24))
+
+  if (days < 0) return "Happening now / passed"
+  if (days === 0) return "Today"
+  if (days === 1) return "Tomorrow"
+  return `In ${days} days`
+}
 
   const filtered = races
     .filter(r => r.name.toLowerCase().includes(search.toLowerCase()))
@@ -233,7 +241,7 @@ onMouseLeave={(e) => {
           style={{ width: "100%", padding: 10, marginTop: 20 }}
         />
 
-        <div style={{ textAlign: "left", marginTop: 10 }}>
+        <div style={{ textAlign: "right", marginTop: 10 }}>
           <select value={filter} onChange={e => setFilter(e.target.value as any)}>
             <option value="all">{langPack.all}</option>
             <option value="road">{langPack.road}</option>

@@ -45,37 +45,24 @@ export default function Home() {
   const races: Race[] = [
     { name: "Kapetanov Trail", date: "2026-01-17", location: "Montenegro", type: "trail", link: "https://live.3hercegnovi.me/event/CPT26/register" },
     { name: "Durmitor Winter Run", date: "2026-02-28", location: "Žabljak", type: "trail", link: "https://durmitorsky.run/course/winter-race" },
-
     { name: "Ultra-maraton Montenegro 2026", date: "2026-03-29", displayDate: "29 Mar 2026 (10:00)", location: "Montenegro", type: "ultra", link: "https://live.3hercegnovi.me/event/PUM26/register" },
-
     { name: "Riverside Run", date: "2026-04-05", location: "Danilovgrad", type: "road", link: "https://live.3hercegnovi.me/event/DG26/register" },
-
     { name: "Ostrog Half Marathon", date: "2026-04-11", location: "Nikšić", type: "road", link: "https://ostroskipolumaraton.com/" },
-
     { name: "BU2 Island Mini Trail", date: "2026-04-19", location: "Budva", type: "trail", link: "https://budva3.me/bu2-island-mini-trail-2026/" },
-
     { name: "Boka Bay Trail", date: "2026-04-25", displayDate: "25–26 Apr 2026", location: "Kotor", type: "trail", link: "https://www.bokabaytrail.com" },
-
     { name: "Last One Standing", date: "2026-05-09", location: "Podgorica", type: "ultra", link: "https://lastonestanding.run/" },
-
     { name: "Plav Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Plav", type: "road", link: "https://plav.run/" },
-
     { name: "Lovćen Trail Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Cetinje", type: "trail", link: "https://cetinjetravel.wixstudio.com/website-24/blank" },
-
     { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", link: "https://www.durmitortrail.run/" },
-
     { name: "Bjelasica Trail", date: "2026-08-08", location: "Kolašin", type: "trail", link: "https://bjelasicatrail.me" },
-
     { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", link: "https://durmitorsky.run/" },
-
     { name: "Prokletije Trail 29K", date: "2026-09-19", location: "Plav", type: "trail", link: "https://itra.run/Races/RaceDetails/114422" },
-
     { name: "Podgorica Millennium Run", date: "2026-10-04", location: "Podgorica", type: "road", link: "https://www.podgorica.run/" },
-
     { name: "Boka Marathon", date: "2026-12-12", displayDate: "12–13 Dec 2026", location: "Tivat–Kotor", type: "road", link: "https://bokamarathon.com/" },
   ]
 
   const today = new Date()
+  today.setHours(0,0,0,0) // ✅ normalize today
 
   const badgeColor = (type: string) => {
     if (type === "road") return "#2563eb"
@@ -84,32 +71,41 @@ export default function Home() {
     return "#999"
   }
 
-const getCountdown = (date: string) => {
-  const today = new Date()
-  const target = new Date(date)
+  const getCountdown = (date: string) => {
+    const today = new Date()
+    const target = new Date(date)
 
-  // Normalize both to LOCAL midnight
-  today.setHours(0, 0, 0, 0)
-  target.setHours(0, 0, 0, 0)
+    today.setHours(0, 0, 0, 0)
+    target.setHours(0, 0, 0, 0)
 
-  const diff = target.getTime() - today.getTime()
-  const days = Math.round(diff / (1000 * 60 * 60 * 24))
+    const diff = target.getTime() - today.getTime()
+    const days = Math.round(diff / (1000 * 60 * 60 * 24))
 
-  if (days < 0) return "Happening now / passed"
-  if (days === 0) return "Today"
-  if (days === 1) return "Tomorrow"
-  return `In ${days} days`
-}
+    if (days < 0) return "Happening now / passed"
+    if (days === 0) return "Today"
+    if (days === 1) return "Tomorrow"
+    return `In ${days} days`
+  }
 
   const filtered = races
     .filter(r => r.name.toLowerCase().includes(search.toLowerCase()))
     .filter(r => filter === "all" || r.type === filter)
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
-  const upcomingAll = filtered.filter(r => new Date(r.date) >= today)
+  const upcomingAll = filtered.filter(r => {
+    const d = new Date(r.date)
+    d.setHours(0,0,0,0)
+    return d >= today
+  })
+
   const nextRace = upcomingAll.length > 0 ? upcomingAll[0] : null
   const upcoming = nextRace ? upcomingAll.filter(r => r.date !== nextRace.date) : upcomingAll
-  const past = filtered.filter(r => new Date(r.date) < today)
+
+  const past = filtered.filter(r => {
+    const d = new Date(r.date)
+    d.setHours(0,0,0,0)
+    return d < today
+  })
 
   const groupByMonth = (list: Race[]) => {
     const grouped: Record<string, Race[]> = {}
@@ -126,7 +122,7 @@ const getCountdown = (date: string) => {
 
   const renderSection = (title: string, data: Record<string, Race[]>) => (
     <div style={{ marginBottom: 50 }}>
-      <h2 style={{ fontSize: 22, textAlign: "center", marginBottom: 30 }}>
+      <h2 style={{ fontSize: 32, fontWeight: 700, textAlign: "center", marginBottom: 30 }}>
         {title}
       </h2>
 
@@ -141,23 +137,23 @@ const getCountdown = (date: string) => {
               <a key={i} href={race.link || "#"} target="_blank" style={{ textDecoration: "none", color: "inherit" }}>
                 <div
                   style={{
-  background: "white",
-  padding: 18,
-  borderRadius: 14,
-  border: "1px solid #eee",
-  cursor: "pointer",
-  textAlign: "center",
-  transition: "all 0.2s ease",
-  boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
-}}
-onMouseEnter={(e) => {
-  e.currentTarget.style.transform = "translateY(-4px)"
-  e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.12)"
-}}
-onMouseLeave={(e) => {
-  e.currentTarget.style.transform = "translateY(0)"
-  e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)"
-}}
+                    background: "white",
+                    padding: 18,
+                    borderRadius: 14,
+                    border: "1px solid #eee",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    transition: "all 0.2s ease",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)"
+                    e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.12)"
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)"
+                    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)"
+                  }}
                 >
                   <div style={{ fontWeight: 700 }}>{race.name}</div>
                   <div>📍 {race.location}</div>

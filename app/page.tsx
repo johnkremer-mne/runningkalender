@@ -163,14 +163,6 @@ const handleSend = async () => {
                     transition: "all 0.2s ease",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
                   }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)"
-                    e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.12)"
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)"
-                    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)"
-                  }}
                 >
                   <div style={{ fontWeight: 700 }}>{race.name}</div>
                   <div>📍 {race.location}</div>
@@ -263,16 +255,13 @@ const handleSend = async () => {
           </select>
         </div>
 
-        {renderSection(langPack.upcoming, groupByMonth(upcoming))}
-
-        {renderSection(langPack.past, groupByMonth(past))}
-
+        {/* MOVED MESSAGE BOX HERE */}
         <div style={{
-          background: "white",
+          background: "linear-gradient(135deg,#ff4d4d,#ff7a00)",
+          color: "white",
           padding: 14,
           borderRadius: 12,
           marginTop: 30,
-          border: "1px solid #eee",
           maxWidth: 500,
           marginLeft: "auto",
           marginRight: "auto"
@@ -309,6 +298,10 @@ const handleSend = async () => {
             Send
           </button>
         </div>
+
+        {renderSection(langPack.upcoming, groupByMonth(upcoming))}
+
+        {renderSection(langPack.past, groupByMonth(past))}
 
       </div>
     </div>

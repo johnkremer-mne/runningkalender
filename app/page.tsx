@@ -254,8 +254,53 @@ export default function Home() {
           </select>
         </div>
 
-        {renderSection(langPack.upcoming, groupByMonth(upcoming))}
-        {renderSection(langPack.past, groupByMonth(past))}
+       {renderSection(langPack.upcoming, groupByMonth(upcoming))}
+
+/* ✅ message box moved here */
+<div style={{
+  background: "white",
+  padding: 14,
+  borderRadius: 12,
+  marginTop: 30,
+  border: "1px solid #eee",
+  maxWidth: 500,
+  marginLeft: "auto",
+  marginRight: "auto"
+}}>
+  <h3 style={{ textAlign: "center", marginBottom: 10 }}>
+    💬 Add race / advertise
+  </h3>
+
+  <textarea
+    placeholder="Send message..."
+    value={message}
+    onChange={e => setMessage(e.target.value)}
+    style={{
+      width: "100%",
+      minHeight: 80,
+      padding: 8,
+      fontSize: 14
+    }}
+  />
+
+  <button
+    onClick={handleSend}
+    style={{
+      marginTop: 8,
+      width: "100%",
+      padding: 10,
+      background: "#111",
+      color: "white",
+      borderRadius: 8,
+      cursor: "pointer",
+      fontSize: 14
+    }}
+  >
+    Send
+  </button>
+</div>
+
+{renderSection(langPack.past, groupByMonth(past))}
 
         <div style={{
           background: "white",

@@ -255,7 +255,9 @@ const handleSend = async () => {
           </select>
         </div>
 
-        {/* MOVED MESSAGE BOX HERE */}
+        {renderSection(langPack.upcoming, groupByMonth(upcoming))}
+
+        {/* MESSAGE BOX MOVED HERE */}
         <div style={{
           background: "linear-gradient(135deg,#ff4d4d,#ff7a00)",
           color: "white",
@@ -298,8 +300,6 @@ const handleSend = async () => {
             Send
           </button>
         </div>
-
-        {renderSection(langPack.upcoming, groupByMonth(upcoming))}
 
         {renderSection(langPack.past, groupByMonth(past))}
 

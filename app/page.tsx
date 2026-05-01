@@ -129,10 +129,26 @@ export default function Home() {
   }
 
   const renderSection = (title: string, data: Record<string, Race[]>) => (
-    <div style={{ marginBottom: 50 }}>
-      <h2 style={{ fontSize: 32, fontWeight: 700, textAlign: "center", marginBottom: 30 }}>
-        {title}
-      </h2>
+<div
+  style={{
+    background: "white",
+    padding: 18,
+    borderRadius: 14,
+    border: "1px solid #eee",
+    cursor: "pointer",
+    textAlign: "center",
+    transition: "all 0.2s ease", // ✅ back
+    boxShadow: "0 2px 8px rgba(0,0,0,0.04)", // ✅ back
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "translateY(-4px)" // ✅ back
+    e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.12)" // ✅ back
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "translateY(0)" // ✅ back
+    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)" // ✅ back
+  }}
+>
 
       {Object.entries(data).map(([month, races]) => (
         <div key={month} style={{ marginBottom: 30 }}>

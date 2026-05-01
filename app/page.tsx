@@ -8,7 +8,7 @@ type Race = {
   displayDate?: string
   location: string
   type: "road" | "trail" | "ultra"
-  distance?: string // ✅ added
+  distance?: string
   link?: string
 }
 
@@ -17,7 +17,7 @@ export default function Home() {
   const [filter, setFilter] =
     useState<"all" | "road" | "trail" | "ultra">("all")
   const [lang, setLang] = useState<"en" | "rs">("en")
-  const [message, setMessage] = useState("") // ✅ added
+  const [message, setMessage] = useState("")
 
   const handleSend = () => {
     const subject = encodeURIComponent("Balkan Running Calendar Inquiry")
@@ -129,26 +129,10 @@ export default function Home() {
   }
 
   const renderSection = (title: string, data: Record<string, Race[]>) => (
-<div
-  style={{
-    background: "white",
-    padding: 18,
-    borderRadius: 14,
-    border: "1px solid #eee",
-    cursor: "pointer",
-    textAlign: "center",
-    transition: "all 0.2s ease", // ✅ back
-    boxShadow: "0 2px 8px rgba(0,0,0,0.04)", // ✅ back
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.transform = "translateY(-4px)" // ✅ back
-    e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.12)" // ✅ back
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.transform = "translateY(0)" // ✅ back
-    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)" // ✅ back
-  }}
->
+    <div style={{ marginBottom: 50 }}>
+      <h2 style={{ fontSize: 32, fontWeight: 700, textAlign: "center", marginBottom: 30 }}>
+        {title}
+      </h2>
 
       {Object.entries(data).map(([month, races]) => (
         <div key={month} style={{ marginBottom: 30 }}>
@@ -159,18 +143,30 @@ export default function Home() {
           <div style={{ display: "grid", gap: 14 }}>
             {races.map((race, i) => (
               <a key={i} href={race.link || "#"} target="_blank" style={{ textDecoration: "none", color: "inherit" }}>
-                <div style={{
-                  background: "white",
-                  padding: 18,
-                  borderRadius: 14,
-                  border: "1px solid #eee",
-                  cursor: "pointer",
-                  textAlign: "center",
-                }}>
+                <div
+                  style={{
+                    background: "white",
+                    padding: 18,
+                    borderRadius: 14,
+                    border: "1px solid #eee",
+                    cursor: "pointer",
+                    textAlign: "center",
+                    transition: "all 0.2s ease",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)"
+                    e.currentTarget.style.boxShadow = "0 10px 25px rgba(0,0,0,0.12)"
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)"
+                    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)"
+                  }}
+                >
                   <div style={{ fontWeight: 700 }}>{race.name}</div>
                   <div>📍 {race.location}</div>
                   <div>📅 {race.displayDate || new Date(race.date).toLocaleDateString("en-GB")}</div>
-                  <div>📏 {race.distance || "TBA"}</div> {/* ✅ added */}
+                  <div>📏 {race.distance || "TBA"}</div>
 
                   <div style={{
                     marginTop: 10,
@@ -226,7 +222,7 @@ export default function Home() {
               <h2>{nextRace.name}</h2>
               <div>📍 {nextRace.location}</div>
               <div>📅 {nextRace.displayDate || new Date(nextRace.date).toLocaleDateString("en-GB")}</div>
-              <div>📏 {nextRace.distance || "TBA"}</div> {/* ✅ added */}
+              <div>📏 {nextRace.distance || "TBA"}</div>
               <div>⏳ {getCountdown(nextRace.date)}</div>
               <div style={{
                 marginTop: 10,
@@ -261,7 +257,6 @@ export default function Home() {
         {renderSection(langPack.upcoming, groupByMonth(upcoming))}
         {renderSection(langPack.past, groupByMonth(past))}
 
-        {/* ✅ message box */}
         <div style={{
           background: "white",
           padding: 20,

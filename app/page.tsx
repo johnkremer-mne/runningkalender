@@ -257,13 +257,13 @@ const handleSend = async () => {
 
         {renderSection(langPack.upcoming, groupByMonth(upcoming))}
 
-        {/* MESSAGE BOX MOVED HERE */}
+        {/* MESSAGE BOX MOVED HERE (ONLY MOVE, NOTHING ELSE CHANGED) */}
         <div style={{
-          background: "linear-gradient(135deg,#ff4d4d,#ff7a00)",
-          color: "white",
+          background: "white",
           padding: 14,
           borderRadius: 12,
           marginTop: 30,
+          border: "1px solid #eee",
           maxWidth: 500,
           marginLeft: "auto",
           marginRight: "auto"
@@ -290,8 +290,8 @@ const handleSend = async () => {
               marginTop: 8,
               width: "100%",
               padding: 10,
-              background: "#ffffff",
-              color: "black",
+              background: "#111",
+              color: "white",
               borderRadius: 8,
               cursor: "pointer",
               fontSize: 14

@@ -19,11 +19,20 @@ export default function Home() {
   const [lang, setLang] = useState<"en" | "rs">("en")
   const [message, setMessage] = useState("")
 
-  const handleSend = () => {
-    const subject = encodeURIComponent("Balkan Running Calendar Inquiry")
-    const body = encodeURIComponent(message)
-    window.location.href = `mailto:johnkremer93@gmail.com?subject=${subject}&body=${body}`
-  }
+const handleSend = async () => {
+  await fetch("https://formspree.io/f/xrejbqyk", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      message: message,
+    }),
+  })
+
+  setMessage("")
+  alert("Message sent 🙌")
+}
 
   const t = {
     en: {
@@ -255,6 +264,8 @@ export default function Home() {
         </div>
 
        {renderSection(langPack.upcoming, groupByMonth(upcoming))}
+
+{renderSection(langPack.past, groupByMonth(past))}
 
 
 <div style={{

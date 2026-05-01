@@ -256,7 +256,7 @@ export default function Home() {
 
        {renderSection(langPack.upcoming, groupByMonth(upcoming))}
 
-/* ✅ message box moved here */
+
 <div style={{
   background: "white",
   padding: 14,
@@ -299,47 +299,5 @@ export default function Home() {
     Send
   </button>
 </div>
-
-{renderSection(langPack.past, groupByMonth(past))}
-
-        <div style={{
-          background: "white",
-          padding: 20,
-          borderRadius: 16,
-          marginTop: 40,
-          border: "1px solid #eee"
-        }}>
-          <h2 style={{ textAlign: "center" }}>💬 Add a race or advertise</h2>
-
-          <textarea
-            placeholder="Send your message here..."
-            value={message}
-            onChange={e => setMessage(e.target.value)}
-            style={{
-              width: "100%",
-              minHeight: 120,
-              padding: 10,
-              marginTop: 10
-            }}
-          />
-
-          <button
-            onClick={handleSend}
-            style={{
-              marginTop: 10,
-              width: "100%",
-              padding: 12,
-              background: "#111",
-              color: "white",
-              borderRadius: 10,
-              cursor: "pointer"
-            }}
-          >
-            Send Message
-          </button>
-        </div>
-
-      </div>
-    </div>
   )
 }

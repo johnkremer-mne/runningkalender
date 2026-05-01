@@ -35,7 +35,7 @@ export default function Home() {
       trail: "Trail",
       ultra: "Ultra",
       next: "🔥 Next Race",
-      discover: "Discover trail, road & ultra races across the Balkans",
+      discover: "Discover trail, road & ultra races across Montenegro",
     },
     rs: {
       upcoming: "🔥 Predstojeće trke",
@@ -63,7 +63,7 @@ export default function Home() {
     { name: "Lovćen Trail Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Cetinje", type: "trail", distance: "6K / 20K / 38K", link: "https://cetinjetravel.wixstudio.com/website-24/blank" },
     { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", distance: "21K / 42K / 64K", link: "https://www.durmitortrail.run/" },
     { name: "Bjelasica Trail", date: "2026-08-08", location: "Kolašin", type: "trail", distance: "12K / 23K / 45K / 60K", link: "https://bjelasicatrail.me" },
-    { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", distance: "TBA", link: "https://durmitorsky.run/" },
+    { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", distance: "16k / 33k", link: "https://durmitorsky.run/" },
     { name: "Prokletije Trail 29K", date: "2026-09-19", location: "Plav", type: "trail", distance: "29K", link: "https://itra.run/Races/RaceDetails/114422" },
     { name: "Podgorica Millennium Run", date: "2026-10-04", location: "Podgorica", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://www.podgorica.run/" },
     { name: "Boka Marathon", date: "2026-12-12", displayDate: "12–13 Dec 2026", location: "Tivat–Kotor", type: "road", distance: "21K / 42K", link: "https://bokamarathon.com/" },
@@ -201,7 +201,7 @@ export default function Home() {
         </div>
 
         <h1 style={{ fontSize: 42, textAlign: "center" }}>
-           Balkan Running Calendar 🏃‍♂️
+           Montenegro Running Calendar 🏃‍♂️
         </h1>
 
         <p style={{ textAlign: "center", color: "#666" }}>

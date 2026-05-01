@@ -290,8 +290,8 @@ const handleSend = async () => {
               marginTop: 8,
               width: "100%",
               padding: 10,
-              background: "#111",
-              color: "white",
+              background: "#ffffff",
+              color: "black",
               borderRadius: 8,
               cursor: "pointer",
               fontSize: 14

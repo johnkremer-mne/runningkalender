@@ -55,7 +55,7 @@ const handleSend = async () => {
       trail: "Trail",
       ultra: "Ultra",
       next: "🔥 Sledeća trka",
-      discover: "Otkrij trail, drumske i ultra trke na Balkanu",
+      discover: "Otkrij trail, drumske i ultra trke na Crna Gora",
     },
   }
 
@@ -205,12 +205,12 @@ const handleSend = async () => {
 
         <div style={{ textAlign: "right" }}>
           <button onClick={() => setLang(lang === "en" ? "rs" : "en")}>
-            {lang === "en" ? "SR" : "EN"}
+            {lang === "en" ? "MNE" : "EN"}
           </button>
         </div>
 
         <h1 style={{ fontSize: 42, textAlign: "center" }}>
-           Montenegro Running Calendar 🏃‍♂️
+           Montenegro Running Kalendar 🏃‍♂️
         </h1>
 
         <p style={{ textAlign: "center", color: "#666" }}>
@@ -278,7 +278,7 @@ const handleSend = async () => {
           marginRight: "auto"
         }}>
           <h3 style={{ textAlign: "center", marginBottom: 10 }}>
-            💬 Add race / advertise
+            💬 Add race / advertise / feedback
           </h3>
 
           <textarea

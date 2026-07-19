@@ -270,10 +270,11 @@ const handleSend = async () => {
   {langPack.next}
 </h2>
               <h2>{nextRace.name}</h2>
+              <div>⏳ {getCountdown(nextRace.date)}</div>
               <div>📍 {nextRace.location}</div>
               <div>📅 {nextRace.displayDate || new Date(nextRace.date).toLocaleDateString("en-GB")}</div>
               <div>📏 {nextRace.distance || "TBA"}</div>
-              <div>⏳ {getCountdown(nextRace.date)}</div>
+              
               <div style={{
                 marginTop: 10,
                 display: "inline-block",

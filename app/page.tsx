@@ -70,7 +70,7 @@ const handleSend = async () => {
 
 { name: "Durmitor Winter Run", date: "2026-02-28", displayDate: "28 Feb 2026", location: "Žabljak", type: "trail", distance: "11K", link: "https://durmitorsky.run/course/winter-race" },
 
-{ name: "Ultra-maraton Montenegro 2026", date: "2026-03-29", displayDate: "29 Mar 2026 (10:00)", location: "Montenegro", type: "ultra", distance: "3K / 5K / 10K / 21K / 50K", link: "https://live.3hercegnovi.me/event/PUM26/register" },
+{ name: "Ultra-maraton Montenegro 2026", date: "2026-03-29", displayDate: "29 Mar 2026", location: "Podgorica", type: "ultra", distance: "3K / 5K / 10K / 21K / 50K", link: "https://live.3hercegnovi.me/event/PUM26/register" },
 
 { name: "Riverside Run", date: "2026-04-05", displayDate: "5 Apr 2026", location: "Danilovgrad", type: "road", distance: "21K", link: "https://live.3hercegnovi.me/event/DG26/register" },
 
@@ -84,22 +84,25 @@ const handleSend = async () => {
 
 { name: "One Run Montenegro", date: "2026-05-23", displayDate: "23 May 2026", location: "Herceg Novi", type: "road", distance: "1K / 5K / 10K / 21K", link: "https://onerunmontenegro.com/" },
 
-{ name: "Plav Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Plav", type: "road", distance: "5K / 10K / 21K", link: "https://plav.run/" },
+{ name: "Plav Run", date: "2026-05-30", displayDate: "30 May 2026", location: "Plav", type: "road", distance: "5K / 10K / 21K", link: "https://plav.run/" },
 
-{ name: "Lovćen Trail Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Cetinje", type: "trail", distance: "6K / 20K / 38K", link: "https://cetinjetravel.wixstudio.com/website-24/blank" },
+{ name: "Lovćen Trail Run", date: "2026-05-30", displayDate: "30 May 2026", location: "Cetinje", type: "trail", distance: "6K / 20K / 38K", link: "https://cetinjetravel.wixstudio.com/website-24/blank" },
 
-{ name: "Sinjavina Skyrace", date: "2026-06-06", displayDate: "6 Jun 2026", location: "Mojkovac", type: "trail", distance: "40K / 10K", link: "https://sinjavinaskyrace.me/" },
+{ name: "Sinjavina Skyrace", date: "2026-06-06", displayDate: "6 Jun 2026", location: "Mojkovac", type: "trail", distance: "10K / 40K", link: "https://sinjavinaskyrace.me/" },
 
 { name: "Summer Race Plužine", date: "2026-06-27", displayDate: "27 Jun 2026", location: "Plužine", type: "road", distance: "6K", link: "https://live.3hercegnovi.me/event/SR26" },
 
-{ name: "Last One Alive Montenegro", date: "2026-06-27", displayDate: "27 Jun 2026", location: "Montenegro", type: "ultra", distance: "Backyard", link: "https://www.facebook.com/profile.php?id=61560225414312&ref=PROFILE_EDIT_xav_ig_profile_page_web#" }, { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", distance: "21K / 42K / 64K", link: "https://www.durmitortrail.run/" },
+{ name: "Last One Alive", date: "2026-06-27", displayDate: "27 Jun 2026", location: "Gusinje", type: "ultra", distance: "Backyard", link: "https://www.facebook.com/profile.php?id=61560225414312&ref=PROFILE_EDIT_xav_ig_profile_page_web#" }, 
 
-  { name: "Bjelasica Trail", date: "2026-08-08", displayDate: "8-9 Aug 2026", location: "Kolašin", type: "trail", distance: "12K / 23K / 40K / 60K", link: "https://bjelasicatrail.me" },
+{ name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "11–12 Jul 2026", location: "Žabljak", type: "trail", distance: "5k / 10k / 21K / 42K / 65K", link: "https://www.durmitortrail.run/" },
+ 
+{ name: "Bjelasica Trail", date: "2026-08-08", displayDate: "8-9 Aug 2026", location: "Kolašin", type: "trail", distance: "12K / 23K / 40K / 60K", link: "https://bjelasicatrail.me" },
 
   { name: "Berane Run", date: "2026-08-15", displayDate: "16 Aug 2026", location: "Berane", type: "road", distance: " 3K / 6K / 21K", link: "https://berane.run/" },
 
  { name: "Vučje Mountain Run", date: "2026-08-23", displayDate: "23 Aug 2026", location: "Vučje", type: "trail", distance: "6K / 8K", link: "https://live.3hercegnovi.me/event/VMR26/register" },
-  { name: "Durmitor Sky Race", date: "2026-09-05",  displayDate: "5 Sep 2026", location: "Žabljak", type: "trail", distance: "16K / 33K", link: "https://durmitorsky.run/" },
+  
+ { name: "Durmitor Sky Race", date: "2026-09-05",  displayDate: "5 Sep 2026", location: "Žabljak", type: "trail", distance: "16K / 33K", link: "https://durmitorsky.run/" },
 
   { name: "Durrador Urban OCR", date: "2026-09-05", displayDate: "5 Sep 2026", location: "Nikšić", type: "trail", distance: "10K", link: "https://www.facebook.com/durrador/?locale=sr_RS" },
 

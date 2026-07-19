@@ -88,10 +88,13 @@ const handleSend = async () => {
 
   { name: "Lovćen Trail Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Cetinje", type: "trail", distance: "6K / 20K / 38K", link: "https://cetinjetravel.wixstudio.com/website-24/blank" },
 
+{ name: "Sinjavina Skyrace", date: "2026-06-06", location: "Mojkovac", type: "trail", distance: "40K / 2000m D+ / 10K / 1000m D+", link: "https://sinjavinaskyrace.me/" },
+
+{ name: "Summer Race Plužine", date: "2026-06-27", location: "Plužine", type: "road", distance: "6K", link: "https://live.3hercegnovi.me/event/SR26" },
+
   { name: "Last One Alive Montenegro", date: "2026-06-27", location: "Montenegro", type: "ultra", distance: "Backyard", link: "https://www.facebook.com/profile.php?id=61560225414312&ref=PROFILE_EDIT_xav_ig_profile_page_web#" },
-
+  
   { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", distance: "21K / 42K / 64K", link: "https://www.durmitortrail.run/" },
-
 
   { name: "Bjelasica Trail", date: "2026-08-08", displayDate: "8-9 Aug 2026", location: "Kolašin", type: "trail", distance: "12K / 23K / 40K / 60K", link: "https://bjelasicatrail.me" },
 

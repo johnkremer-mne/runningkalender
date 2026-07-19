@@ -98,7 +98,7 @@ const handleSend = async () => {
 
   { name: "Bjelasica Trail", date: "2026-08-08", displayDate: "8-9 Aug 2026", location: "Kolašin", type: "trail", distance: "12K / 23K / 40K / 60K", link: "https://bjelasicatrail.me" },
 
-  { name: "Berane Run", date: "2026-08-15", displayDate: "15–16 Aug 2026", location: "Berane", type: "road", distance: "School Run / Bay Run / 3K / 6K / 21K", link: "https://berane.run/" },
+  { name: "Berane Run", date: "2026-08-15", displayDate: "15–16 Aug 2026", location: "Berane", type: "road", distance: " 3K / 6K / 21K", link: "https://berane.run/" },
 
  { name: "Vučje Mountain Run", date: "2026-08-23", location: "Vučje", type: "trail", distance: "6K / 8K", link: "https://live.3hercegnovi.me/event/VMR26/register" },
   { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", distance: "16K / 33K", link: "https://durmitorsky.run/" },
@@ -115,7 +115,7 @@ const handleSend = async () => {
 
   { name: "Podgorica Millennium Run", date: "2026-11-08", location: "Podgorica", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://www.podgorica.run/" },
 
-  { name: "Boka Marathon", date: "2026-12-12", displayDate: "12–13 Dec 2026", location: "Tivat–Kotor", type: "road", distance: "21K / 42K", link: "https://bokamarathon.com/" },
+  { name: "Boka Marathon", date: "2026-12-12", displayDate: "12–13 Dec 2026", location: "Tivat–Kotor", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://bokamarathon.com/" },
 ];
   const today = new Date()
   today.setHours(0,0,0,0)
@@ -154,8 +154,8 @@ const handleSend = async () => {
     return d >= today
   })
 
-  const nextRace = upcomingAll.length > 0 ? upcomingAll[0] : null
-  const upcoming = nextRace ? upcomingAll.filter(r => r.date !== nextRace.date) : upcomingAll
+ const nextRace = upcomingAll.length > 0 ? upcomingAll[0] : null
+const upcoming = upcomingAll
 
   const past = filtered.filter(r => {
     const d = new Date(r.date)

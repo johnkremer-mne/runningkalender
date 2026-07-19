@@ -7,7 +7,7 @@ type Race = {
   date: string
   displayDate?: string
   location: string
-  type: "road" | "trail" | "ultra"
+  type: "road" | "trail" | "ultra" | "multi-stage-trail"
   distance?: string
   link?: string
 }
@@ -15,7 +15,7 @@ type Race = {
 export default function Home() {
   const [search, setSearch] = useState("")
   const [filter, setFilter] =
-    useState<"all" | "road" | "trail" | "ultra">("all")
+    useState<"all" | "road" | "trail" | "ultra" | "multi-stage-trail">("all")
   const [lang, setLang] = useState<"en" | "rs">("en")
   const [message, setMessage] = useState("")
 
@@ -62,7 +62,7 @@ const handleSend = async () => {
  const races: Race[] = [
   { name: "Portonovi New Year's Run", date: "2026-01-11", location: "Kumbor", type: "road", distance: "5K / Kids", link: "https://portonovi.com/me/annual-calendar/new-year-run-2026" },
 
-  { name: "Kapetanov Trail", date: "2026-01-17", location: "Montenegro", type: "trail", distance: "8K", link: "https://live.3hercegnovi.me/event/CPT26/register" },
+  { name: "Kapetanov Trail", date: "2026-01-17", location: "Kapetanov Jezero", type: "trail", distance: "8K", link: "https://live.3hercegnovi.me/event/CPT26/register" },
 
   { name: "Podgorička Desetka", date: "2026-01-25", displayDate: "25 Jan 2026 (12:00)", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/PD26/register" },
 
@@ -100,11 +100,13 @@ const handleSend = async () => {
 
   { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", distance: "16K / 33K", link: "https://durmitorsky.run/" },
 
-  { name: "Durrador Urban OCR", date: "2026-09-05", location: "Montenegro", type: "trail", distance: "10K", link: "https://www.facebook.com/durrador/?locale=sr_RS" },
+  { name: "Durrador Urban OCR", date: "2026-09-05", location: "Nikšić", type: "trail", distance: "10K", link: "https://www.facebook.com/durrador/?locale=sr_RS" },
 
-  { name: "Global Limits - Peaks of the Balkan", date: "2026-09-11", displayDate: "11–19 Sep 2026", location: "Plav", type: "ultra", distance: "200K (6 Stages)", link: "https://www.global-limits.com/peaks-of-the-balkan" },
+  { name: "Global Limits - Peaks of the Balkan", date: "2026-09-11", displayDate: "11–19 Sep 2026", location: "Plav", type: "multi-stage-trail", distance: "200K (6 Stages)", link: "https://www.global-limits.com/peaks-of-the-balkan" },
+ 
+    { name: "Prokletije Trail", date: "2026-09-19", location: "Plav", type: "trail", distance: "29K / 50K", link: "https://itra.run/Races/RaceDetails/Prokletije.Trail.RED.50K/2026/114422" },
 
-  { name: "Prokletije Trail", date: "2026-09-19", location: "Plav", type: "trail", distance: "29K / 50K", link: "https://itra.run/Races/RaceDetails/Prokletije.Trail.RED.50K/2026/114422" },
+  { name: "Croatia–Montenegro Trail Challenge", date: "2026-09-20", displayDate: "20–26 Sep 2026", location: "Herceg Novi", type: "multi-stage-trail", distance: "96K (5 Stages)", link: "https://www.trailtobealive.fr/croatie-montenegro-trail-challenge/" },
 
   { name: "Podgorica Millennium Run", date: "2026-10-04", location: "Podgorica", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://www.podgorica.run/" },
 

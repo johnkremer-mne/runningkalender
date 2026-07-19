@@ -155,7 +155,7 @@ const handleSend = async () => {
   })
 
  const nextRace = upcomingAll.length > 0 ? upcomingAll[0] : null
-const upcoming = upcomingAll
+const upcoming = nextRace ? upcomingAll.filter(r => r.date !== nextRace.date) : upcomingAll
 
   const past = filtered.filter(r => {
     const d = new Date(r.date)

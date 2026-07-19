@@ -260,7 +260,7 @@ const handleSend = async () => {
           <a href={nextRace.link || "#"} target="_blank">
             <div style={{
               background: "linear-gradient(135deg,#ff4d4d,#ff7a00)",
-              color: "white",
+              color: "black",
               padding: 20,
               borderRadius: 16,
               marginTop: 0,

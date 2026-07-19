@@ -98,18 +98,18 @@ const handleSend = async () => {
 
   { name: "Bjelasica Trail", date: "2026-08-08", displayDate: "8-9 Aug 2026", location: "Kolašin", type: "trail", distance: "12K / 23K / 40K / 60K", link: "https://bjelasicatrail.me" },
 
-  { name: "Berane Run", date: "2026-08-15", displayDate: "15–16 Aug 2026", location: "Berane", type: "road", distance: " 3K / 6K / 21K", link: "https://berane.run/" },
+  { name: "Berane Run", date: "2026-08-15", displayDate: "16 Aug 2026", location: "Berane", type: "road", distance: " 3K / 6K / 21K", link: "https://berane.run/" },
 
- { name: "Vučje Mountain Run", date: "2026-08-23", location: "Vučje", type: "trail", distance: "6K / 8K", link: "https://live.3hercegnovi.me/event/VMR26/register" },
-  { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", distance: "16K / 33K", link: "https://durmitorsky.run/" },
+ { name: "Vučje Mountain Run", date: "2026-08-23", displayDate: "23 Aug 2026", location: "Vučje", type: "trail", distance: "6K / 8K", link: "https://live.3hercegnovi.me/event/VMR26/register" },
+  { name: "Durmitor Sky Race", date: "2026-09-05",  displayDate: "5 Sep 2026", location: "Žabljak", type: "trail", distance: "16K / 33K", link: "https://durmitorsky.run/" },
 
-  { name: "Durrador Urban OCR", date: "2026-09-05", location: "Nikšić", type: "trail", distance: "10K", link: "https://www.facebook.com/durrador/?locale=sr_RS" },
+  { name: "Durrador Urban OCR", date: "2026-09-05", displayDate: "5 Sep 2026", location: "Nikšić", type: "trail", distance: "10K", link: "https://www.facebook.com/durrador/?locale=sr_RS" },
 
   { name: "Global Limits - Peaks of the Balkan", date: "2026-09-11", displayDate: "11–19 Sep 2026", location: "Plav", type: "multi-stage-trail", distance: "200K (6 Stages)", link: "https://www.global-limits.com/peaks-of-the-balkan" },
  
     { name: "Prokletije Trail", date: "2026-09-19", location: "Plav", type: "trail", distance: "29K / 50K", link: "https://itra.run/Races/RaceDetails/Prokletije.Trail.RED.50K/2026/114422" },
 
-  { name: "Croatia–Montenegro Trail Challenge", date: "2026-09-20", displayDate: "20–26 Sep 2026", location: "Herceg Novi", type: "multi-stage-trail", distance: "96K (5 Stages)", link: "https://www.trailtobealive.fr/croatie-montenegro-trail-challenge/" },
+  { name: "Croatia–Montenegro Trail Challenge", date: "2026-09-20", displayDate: "20–26 Sep 2026", location: "Dubrovnik", type: "multi-stage-trail", distance: "96K (5 Stages)", link: "https://www.trailtobealive.fr/croatie-montenegro-trail-challenge/" },
 
   { name: "Fun Run Gorica", date: "2026-10-04", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/FRG26/register" },
 

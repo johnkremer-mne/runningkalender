@@ -107,13 +107,13 @@ const handleSend = async () => {
 
   { name: "Global Limits - Peaks of the Balkan", date: "2026-09-11", displayDate: "11–19 Sep 2026", location: "Plav", type: "multi-stage-trail", distance: "200K (6 Stages)", link: "https://www.global-limits.com/peaks-of-the-balkan" },
  
-    { name: "Prokletije Trail", date: "2026-09-19", location: "Plav", type: "trail", distance: "29K / 50K", link: "https://itra.run/Races/RaceDetails/Prokletije.Trail.RED.50K/2026/114422" },
+    { name: "Prokletije Trail", date: "2026-09-19", displayDate: "19 Sep 2026", location: "Plav", type: "trail", distance: "29K / 50K", link: "https://itra.run/Races/RaceDetails/Prokletije.Trail.RED.50K/2026/114422" },
 
   { name: "Croatia–Montenegro Trail Challenge", date: "2026-09-20", displayDate: "20–26 Sep 2026", location: "Dubrovnik", type: "multi-stage-trail", distance: "96K (5 Stages)", link: "https://www.trailtobealive.fr/croatie-montenegro-trail-challenge/" },
 
-  { name: "Fun Run Gorica", date: "2026-10-04", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/FRG26/register" },
+  { name: "Fun Run Gorica", date: "2026-10-04", displayDate: "4 okt 2026", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/FRG26/register" },
 
-  { name: "Podgorica Millennium Run", date: "2026-11-08", location: "Podgorica", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://www.podgorica.run/" },
+  { name: "Podgorica Millennium Run", date: "2026-11-08", displayDate: "8 nov 2026", location: "Podgorica", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://www.podgorica.run/" },
 
   { name: "Boka Marathon", date: "2026-12-12", displayDate: "12–13 Dec 2026", location: "Tivat–Kotor", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://bokamarathon.com/" },
 ];

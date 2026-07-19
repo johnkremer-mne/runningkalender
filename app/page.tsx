@@ -108,7 +108,9 @@ const handleSend = async () => {
 
   { name: "Croatia–Montenegro Trail Challenge", date: "2026-09-20", displayDate: "20–26 Sep 2026", location: "Herceg Novi", type: "multi-stage-trail", distance: "96K (5 Stages)", link: "https://www.trailtobealive.fr/croatie-montenegro-trail-challenge/" },
 
-  { name: "Podgorica Millennium Run", date: "2026-10-04", location: "Podgorica", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://www.podgorica.run/" },
+  { name: "Fun Run Gorica", date: "2026-10-04", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/FRG26/register" },
+
+  { name: "Podgorica Millennium Run", date: "2026-11-08", location: "Podgorica", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://www.podgorica.run/" },
 
   { name: "Boka Marathon", date: "2026-12-12", displayDate: "12–13 Dec 2026", location: "Tivat–Kotor", type: "road", distance: "21K / 42K", link: "https://bokamarathon.com/" },
 ];

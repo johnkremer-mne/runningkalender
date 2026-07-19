@@ -60,41 +60,39 @@ const handleSend = async () => {
   }
 
  const races: Race[] = [
-  { name: "Portonovi New Year's Run", date: "2026-01-11", location: "Kumbor", type: "road", distance: "5K / Kids", link: "https://portonovi.com/me/annual-calendar/new-year-run-2026" },
+  { name: "Portonovi New Year's Run", date: "2026-01-11", displayDate: "11 Jan 2026", location: "Kumbor", type: "road", distance: "5K / Kids", link: "https://portonovi.com/me/annual-calendar/new-year-run-2026" },
 
-  { name: "Kapetanov Trail", date: "2026-01-17", location: "Kapetanov Jezero", type: "trail", distance: "8K", link: "https://live.3hercegnovi.me/event/CPT26/register" },
+{ name: "Kapetanov Trail", date: "2026-01-17", displayDate: "17 Jan 2026", location: "Kapetanov Jezero", type: "trail", distance: "8K", link: "https://live.3hercegnovi.me/event/CPT26/register" },
 
-  { name: "Podgorička Desetka", date: "2026-01-25", displayDate: "25 Jan 2026 (12:00)", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/PD26/register" },
+{ name: "Podgorička Desetka", date: "2026-01-25", displayDate: "25 Jan 2026 (12:00)", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/PD26/register" },
 
-  { name: "LoveRun Podgorica", date: "2026-02-14", location: "Podgorica", type: "road", distance: "5K", link: "https://myloverun.eu/podgorica" },
+{ name: "LoveRun Podgorica", date: "2026-02-14", displayDate: "14 Feb 2026", location: "Podgorica", type: "road", distance: "5K", link: "https://myloverun.eu/podgorica" },
 
-  { name: "Durmitor Winter Run", date: "2026-02-28", location: "Žabljak", type: "trail", distance: "11K", link: "https://durmitorsky.run/course/winter-race" },
+{ name: "Durmitor Winter Run", date: "2026-02-28", displayDate: "28 Feb 2026", location: "Žabljak", type: "trail", distance: "11K", link: "https://durmitorsky.run/course/winter-race" },
 
-  { name: "Ultra-maraton Montenegro 2026", date: "2026-03-29", displayDate: "29 Mar 2026 (10:00)", location: "Montenegro", type: "ultra", distance: "3K / 5K / 10K / 21K / 50K", link: "https://live.3hercegnovi.me/event/PUM26/register" },
+{ name: "Ultra-maraton Montenegro 2026", date: "2026-03-29", displayDate: "29 Mar 2026 (10:00)", location: "Montenegro", type: "ultra", distance: "3K / 5K / 10K / 21K / 50K", link: "https://live.3hercegnovi.me/event/PUM26/register" },
 
-  { name: "Riverside Run", date: "2026-04-05", location: "Danilovgrad", type: "road", distance: "21K", link: "https://live.3hercegnovi.me/event/DG26/register" },
+{ name: "Riverside Run", date: "2026-04-05", displayDate: "5 Apr 2026", location: "Danilovgrad", type: "road", distance: "21K", link: "https://live.3hercegnovi.me/event/DG26/register" },
 
-  { name: "Ostrog Half Marathon", date: "2026-04-11", location: "Nikšić", type: "road", distance: "21K", link: "https://ostroskipolumaraton.com/" },
+{ name: "Ostrog Half Marathon", date: "2026-04-11", displayDate: "11 Apr 2026", location: "Nikšić", type: "road", distance: "21K", link: "https://ostroskipolumaraton.com/" },
 
-  { name: "BU2 Island Mini Trail", date: "2026-04-19", location: "Budva", type: "trail", distance: "2.88K / 5.8K", link: "https://budva3.me/bu2-island-mini-trail-2026/" },
+{ name: "BU2 Island Mini Trail", date: "2026-04-19", displayDate: "19 Apr 2026", location: "Budva", type: "trail", distance: "2.88K / 5.8K", link: "https://budva3.me/bu2-island-mini-trail-2026/" },
 
-  { name: "Boka Bay Trail", date: "2026-04-25", displayDate: "25–26 Apr 2026", location: "Kotor", type: "trail", distance: "7K / 17K / 33K / 60K / 83K", link: "https://www.bokabaytrail.com" },
+{ name: "Boka Bay Trail", date: "2026-04-25", displayDate: "25–26 Apr 2026", location: "Kotor", type: "trail", distance: "7K / 17K / 33K / 60K / 83K", link: "https://www.bokabaytrail.com" },
 
-  { name: "Last One Standing", date: "2026-05-09", location: "Podgorica", type: "ultra", distance: "Backyard", link: "https://lastonestanding.run/" },
+{ name: "Last One Standing", date: "2026-05-09", displayDate: "9 May 2026", location: "Podgorica", type: "ultra", distance: "Backyard", link: "https://lastonestanding.run/" },
 
-  { name: "One Run Montenegro", date: "2026-05-23", location: "Herceg Novi", type: "road", distance: "1K / 5K / 10K / 21K", link: "https://onerunmontenegro.com/" },
+{ name: "One Run Montenegro", date: "2026-05-23", displayDate: "23 May 2026", location: "Herceg Novi", type: "road", distance: "1K / 5K / 10K / 21K", link: "https://onerunmontenegro.com/" },
 
-  { name: "Plav Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Plav", type: "road", distance: "5K / 10K / 21K", link: "https://plav.run/" },
+{ name: "Plav Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Plav", type: "road", distance: "5K / 10K / 21K", link: "https://plav.run/" },
 
-  { name: "Lovćen Trail Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Cetinje", type: "trail", distance: "6K / 20K / 38K", link: "https://cetinjetravel.wixstudio.com/website-24/blank" },
+{ name: "Lovćen Trail Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Cetinje", type: "trail", distance: "6K / 20K / 38K", link: "https://cetinjetravel.wixstudio.com/website-24/blank" },
 
-{ name: "Sinjavina Skyrace", date: "2026-06-06", location: "Mojkovac", type: "trail", distance: "40K / 10K", link: "https://sinjavinaskyrace.me/" },
+{ name: "Sinjavina Skyrace", date: "2026-06-06", displayDate: "6 Jun 2026", location: "Mojkovac", type: "trail", distance: "40K / 10K", link: "https://sinjavinaskyrace.me/" },
 
-{ name: "Summer Race Plužine", date: "2026-06-27", location: "Plužine", type: "road", distance: "6K", link: "https://live.3hercegnovi.me/event/SR26" },
+{ name: "Summer Race Plužine", date: "2026-06-27", displayDate: "27 Jun 2026", location: "Plužine", type: "road", distance: "6K", link: "https://live.3hercegnovi.me/event/SR26" },
 
-  { name: "Last One Alive Montenegro", date: "2026-06-27", location: "Montenegro", type: "ultra", distance: "Backyard", link: "https://www.facebook.com/profile.php?id=61560225414312&ref=PROFILE_EDIT_xav_ig_profile_page_web#" },
-  
-  { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", distance: "21K / 42K / 64K", link: "https://www.durmitortrail.run/" },
+{ name: "Last One Alive Montenegro", date: "2026-06-27", displayDate: "27 Jun 2026", location: "Montenegro", type: "ultra", distance: "Backyard", link: "https://www.facebook.com/profile.php?id=61560225414312&ref=PROFILE_EDIT_xav_ig_profile_page_web#" }, { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", distance: "21K / 42K / 64K", link: "https://www.durmitortrail.run/" },
 
   { name: "Bjelasica Trail", date: "2026-08-08", displayDate: "8-9 Aug 2026", location: "Kolašin", type: "trail", distance: "12K / 23K / 40K / 60K", link: "https://bjelasicatrail.me" },
 

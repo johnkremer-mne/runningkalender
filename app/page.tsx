@@ -269,11 +269,11 @@ const handleSend = async () => {
               <h2 style={{ fontSize: 32, fontWeight: 700, textAlign: "center", marginBottom: 30 }}>
   {langPack.next}
 </h2>
-              <h2>{nextRace.name}</h2>
-              <div>⏳ {getCountdown(nextRace.date)}</div>
-              <div>📍 {nextRace.location}</div>
-              <div>📅 {nextRace.displayDate || new Date(nextRace.date).toLocaleDateString("en-GB")}</div>
-              <div>📏 {nextRace.distance || "TBA"}</div>
+              <h2 style={{ marginBottom: 5 }}>{getCountdown(nextRace.date)}</h2>
+<h2>{nextRace.name}</h2>
+<div>📍 {nextRace.location}</div>
+<div>📅 {nextRace.displayDate || new Date(nextRace.date).toLocaleDateString("en-GB")}</div>
+<div>📏 {nextRace.distance || "TBA"}</div>
               
               <div style={{
                 marginTop: 10,

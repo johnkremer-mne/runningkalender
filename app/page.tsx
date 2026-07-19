@@ -92,7 +92,7 @@ const handleSend = async () => {
 
   { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", distance: "21K / 42K / 64K", link: "https://www.durmitortrail.run/" },
 
-  { name: "Prokletije Skyrunning", date: "2026-07-24", displayDate: "24–26 Jul 2026", location: "Gusinje", type: "trail", distance: "32K / 53K / 177K", link: "https://prokletijeskyrunning.com" },
+  { name: "Prokletije Skyrunning", date: "2026-07-24", displayDate: "24–26 Jul 2026", location: "Gusinje", type: "trail", distance: "32K / 53K / 177K", link: "https://traveltomontenegro.com/en/events/prokletije-skyrunning" },
 
   { name: "Bjelasica Trail", date: "2026-08-08", location: "Kolašin", type: "trail", distance: "12K / 23K / 45K / 60K", link: "https://bjelasicatrail.me" },
 
@@ -104,7 +104,7 @@ const handleSend = async () => {
 
   { name: "Global Limits - Peaks of the Balkan", date: "2026-09-11", displayDate: "11–19 Sep 2026", location: "Plav", type: "ultra", distance: "200K (6 Stages)", link: "https://www.global-limits.com/peaks-of-the-balkan" },
 
-  { name: "Prokletije Trail 29K", date: "2026-09-19", location: "Plav", type: "trail", distance: "29K", link: "https://traveltomontenegro.com/en/events/prokletije-skyrunning" },
+  { name: "Prokletije Trail", date: "2026-09-19", location: "Plav", type: "trail", distance: "29K / 50K", link: "https://itra.run/Races/RaceDetails/Prokletije.Trail.RED.50K/2026/114422" },
 
   { name: "Podgorica Millennium Run", date: "2026-10-04", location: "Podgorica", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://www.podgorica.run/" },
 

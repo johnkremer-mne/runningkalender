@@ -59,7 +59,9 @@ const handleSend = async () => {
     },
   }
 
-  const races: Race[] = [
+ const races: Race[] = [
+  { name: "Portonovi New Year's Run", date: "2026-01-11", location: "Kumbor", type: "road", distance: "5K / Kids", link: "https://portonovi.com/me/annual-calendar/new-year-run-2026" },
+
   { name: "Kapetanov Trail", date: "2026-01-17", location: "Montenegro", type: "trail", distance: "8K", link: "https://live.3hercegnovi.me/event/CPT26/register" },
 
   { name: "Podgorička Desetka", date: "2026-01-25", displayDate: "25 Jan 2026 (12:00)", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/PD26/register" },
@@ -90,11 +92,15 @@ const handleSend = async () => {
 
   { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", distance: "21K / 42K / 64K", link: "https://www.durmitortrail.run/" },
 
+  { name: "Prokletije Skyrunning", date: "2026-07-24", displayDate: "24–26 Jul 2026", location: "Gusinje", type: "trail", distance: "32K / 53K / 177K", link: "https://prokletijeskyrunning.com" },
+
   { name: "Bjelasica Trail", date: "2026-08-08", location: "Kolašin", type: "trail", distance: "12K / 23K / 45K / 60K", link: "https://bjelasicatrail.me" },
 
   { name: "Berane Run", date: "2026-08-15", displayDate: "15–16 Aug 2026", location: "Berane", type: "road", distance: "School Run / Bay Run / 3K / 6K / 21K", link: "https://berane.run/" },
 
   { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", distance: "16K / 33K", link: "https://durmitorsky.run/" },
+
+  { name: "Durrador Urban OCR", date: "2026-09-05", location: "Montenegro", type: "ocr", distance: "10K", link: "https://www.facebook.com/durrador/?locale=sr_RS" },
 
   { name: "Global Limits - Peaks of the Balkan", date: "2026-09-11", displayDate: "11–19 Sep 2026", location: "Plav", type: "ultra", distance: "200K (6 Stages)", link: "https://www.global-limits.com/peaks-of-the-balkan" },
 

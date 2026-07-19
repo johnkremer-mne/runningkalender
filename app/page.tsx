@@ -60,11 +60,11 @@ const handleSend = async () => {
   }
 
  const races: Race[] = [
-  { name: "Portonovi New Year's Run", date: "2026-01-11", displayDate: "11 Jan 2026", location: "Kumbor", type: "road", distance: "5K / Kids", link: "https://portonovi.com/me/annual-calendar/new-year-run-2026" },
+  { name: "Portonovi New Year's Run", date: "2026-01-11", displayDate: "11 Jan 2026", location: "Porto novi, HN", type: "road", distance: "Kids / 5k", link: "https://portonovi.com/me/annual-calendar/new-year-run-2026" },
 
-{ name: "Kapetanov Trail", date: "2026-01-17", displayDate: "17 Jan 2026", location: "Kapetanov Jezero", type: "trail", distance: "8K", link: "https://live.3hercegnovi.me/event/CPT26/register" },
+{ name: "Kapetanov Trail", date: "2026-01-17", displayDate: "17 Jan 2026", location: "Kumbor, HN", type: "trail", distance: "8K", link: "https://live.3hercegnovi.me/event/CPT26/register" },
 
-{ name: "Podgorička Desetka", date: "2026-01-25", displayDate: "25 Jan 2026 (12:00)", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/PD26/register" },
+{ name: "Podgorička Desetka", date: "2026-01-25", displayDate: "25 Jan 2026", location: "Podgorica", type: "road", distance: "10K", link: "https://live.3hercegnovi.me/event/PD26/register" },
 
 { name: "LoveRun Podgorica", date: "2026-02-14", displayDate: "14 Feb 2026", location: "Podgorica", type: "road", distance: "5K", link: "https://myloverun.eu/podgorica" },
 

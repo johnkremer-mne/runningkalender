@@ -88,7 +88,7 @@ const handleSend = async () => {
 
   { name: "Lovćen Trail Run", date: "2026-05-30", displayDate: "30–31 May 2026", location: "Cetinje", type: "trail", distance: "6K / 20K / 38K", link: "https://cetinjetravel.wixstudio.com/website-24/blank" },
 
-{ name: "Sinjavina Skyrace", date: "2026-06-06", location: "Mojkovac", type: "trail", distance: "40K / 2000m D+ / 10K / 1000m D+", link: "https://sinjavinaskyrace.me/" },
+{ name: "Sinjavina Skyrace", date: "2026-06-06", location: "Mojkovac", type: "trail", distance: "40K / 10K", link: "https://sinjavinaskyrace.me/" },
 
 { name: "Summer Race Plužine", date: "2026-06-27", location: "Plužine", type: "road", distance: "6K", link: "https://live.3hercegnovi.me/event/SR26" },
 

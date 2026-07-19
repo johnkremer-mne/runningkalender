@@ -263,10 +263,12 @@ const handleSend = async () => {
               color: "white",
               padding: 20,
               borderRadius: 16,
-              marginTop: 20,
+              marginTop: 0,
               textAlign: "center"
             }}>
-              <div>{langPack.next}</div>
+              <h2 style={{ fontSize: 32, fontWeight: 700, textAlign: "center", marginBottom: 30 }}>
+  {langPack.next}
+</h2>
               <h2>{nextRace.name}</h2>
               <div>📍 {nextRace.location}</div>
               <div>📅 {nextRace.displayDate || new Date(nextRace.date).toLocaleDateString("en-GB")}</div>

@@ -92,10 +92,12 @@ const handleSend = async () => {
 
   { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", distance: "21K / 42K / 64K", link: "https://www.durmitortrail.run/" },
 
-  { name: "Bjelasica Trail", date: "2026-08-08", location: "Kolašin", type: "trail", distance: "12K / 23K / 40K / 60K", link: "https://bjelasicatrail.me" },
+
+  { name: "Bjelasica Trail", date: "2026-08-08", displayDate: "8-9 Aug 2026", location: "Kolašin", type: "trail", distance: "12K / 23K / 40K / 60K", link: "https://bjelasicatrail.me" },
 
   { name: "Berane Run", date: "2026-08-15", displayDate: "15–16 Aug 2026", location: "Berane", type: "road", distance: "School Run / Bay Run / 3K / 6K / 21K", link: "https://berane.run/" },
 
+ { name: "Vučje Mountain Run", date: "2026-08-23", location: "Vučje", type: "trail", distance: "6K / 8K", link: "https://live.3hercegnovi.me/event/VMR26/register" },
   { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", distance: "16K / 33K", link: "https://durmitorsky.run/" },
 
   { name: "Durrador Urban OCR", date: "2026-09-05", location: "Nikšić", type: "trail", distance: "10K", link: "https://www.facebook.com/durrador/?locale=sr_RS" },

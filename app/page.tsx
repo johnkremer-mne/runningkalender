@@ -92,9 +92,7 @@ const handleSend = async () => {
 
   { name: "Durmitor Trail Run", date: "2026-07-10", displayDate: "10–12 Jul 2026", location: "Žabljak", type: "trail", distance: "21K / 42K / 64K", link: "https://www.durmitortrail.run/" },
 
-  { name: "Prokletije Skyrunning", date: "2026-07-24", displayDate: "24–26 Jul 2026", location: "Gusinje", type: "trail", distance: "32K / 53K / 177K", link: "https://traveltomontenegro.com/en/events/prokletije-skyrunning" },
-
-  { name: "Bjelasica Trail", date: "2026-08-08", location: "Kolašin", type: "trail", distance: "12K / 23K / 45K / 60K", link: "https://bjelasicatrail.me" },
+  { name: "Bjelasica Trail", date: "2026-08-08", location: "Kolašin", type: "trail", distance: "12K / 23K / 40K / 60K", link: "https://bjelasicatrail.me" },
 
   { name: "Berane Run", date: "2026-08-15", displayDate: "15–16 Aug 2026", location: "Berane", type: "road", distance: "School Run / Bay Run / 3K / 6K / 21K", link: "https://berane.run/" },
 

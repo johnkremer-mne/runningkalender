@@ -100,7 +100,7 @@ const handleSend = async () => {
 
   { name: "Durmitor Sky Race", date: "2026-09-05", location: "Žabljak", type: "trail", distance: "16K / 33K", link: "https://durmitorsky.run/" },
 
-  { name: "Durrador Urban OCR", date: "2026-09-05", location: "Montenegro", type: "ocr", distance: "10K", link: "https://www.facebook.com/durrador/?locale=sr_RS" },
+  { name: "Durrador Urban OCR", date: "2026-09-05", location: "Montenegro", type: "trail", distance: "10K", link: "https://www.facebook.com/durrador/?locale=sr_RS" },
 
   { name: "Global Limits - Peaks of the Balkan", date: "2026-09-11", displayDate: "11–19 Sep 2026", location: "Plav", type: "ultra", distance: "200K (6 Stages)", link: "https://www.global-limits.com/peaks-of-the-balkan" },
 

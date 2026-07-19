@@ -43,7 +43,7 @@ const handleSend = async () => {
       road: "Road",
       trail: "Trail",
       ultra: "Ultra",
-      next: "🔥 Next Race",
+      next: "Next Race",
       discover: "Discover trail, road & ultra races across Montenegro",
     },
     rs: {

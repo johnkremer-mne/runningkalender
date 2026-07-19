@@ -104,7 +104,7 @@ const handleSend = async () => {
 
   { name: "Global Limits - Peaks of the Balkan", date: "2026-09-11", displayDate: "11–19 Sep 2026", location: "Plav", type: "ultra", distance: "200K (6 Stages)", link: "https://www.global-limits.com/peaks-of-the-balkan" },
 
-  { name: "Prokletije Trail 29K", date: "2026-09-19", location: "Plav", type: "trail", distance: "29K", link: "https://itra.run/Races/RaceDetails/114422" },
+  { name: "Prokletije Trail 29K", date: "2026-09-19", location: "Plav", type: "trail", distance: "29K", link: "https://traveltomontenegro.com/en/events/prokletije-skyrunning" },
 
   { name: "Podgorica Millennium Run", date: "2026-10-04", location: "Podgorica", type: "road", distance: "5K / 10K / 21K / 42K", link: "https://www.podgorica.run/" },
 

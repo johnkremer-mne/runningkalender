@@ -108,7 +108,7 @@ const handleSend = async () => {
 
   { name: "Global Limits - Peaks of the Balkan", date: "2026-09-11", displayDate: "11–19 Sep 2026", location: "Plav", type: "multi-stage-trail", distance: "200K (6 Stages)", link: "https://www.global-limits.com/peaks-of-the-balkan" },
  
-    { name: "Prokletije Trail", date: "2026-09-19", displayDate: "19 Sep 2026", location: "Plav", type: "trail", distance: "29K / 50K", link: "https://itra.run/Races/RaceDetails/Prokletije.Trail.RED.50K/2026/114422" },
+    { name: "Prokletije Trail", date: "2026-09-19", displayDate: "19 Sep 2026", location: "Plav", type: "trail", distance: "29K / 50K", link: "https://www.avaibooksports.com/inscripcion/prokletije-trail-2026/" },
 
   { name: "Croatia–Montenegro Trail Challenge", date: "2026-09-20", displayDate: "20–26 Sep 2026", location: "Dubrovnik", type: "multi-stage-trail", distance: "96K (5 Stages)", link: "https://www.trailtobealive.fr/croatie-montenegro-trail-challenge/" },
 

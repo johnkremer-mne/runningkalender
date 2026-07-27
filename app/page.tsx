@@ -252,7 +252,7 @@ return (
           name: "Montenegro Running Calendar",
           url: "https://runningkalender.vercel.app/",
           description:
-            "The complete calendar of trail races, road races and ultra running events in Montenegro and the Balkans.",
+            "The complete calendar of trail races, road races and ultra running events in Montenegro.",
         }),
       }}
     />
@@ -272,7 +272,7 @@ return (
 
      <p style={{ textAlign: "center", color: "#666", maxWidth: 700, margin: "0 auto" }}>
   Find trail races, road races, ultra marathons and mountain running events across
-  Montenegro and the Balkans. Updated regularly with official race dates and links.
+  Montenegro. Updated regularly with official race dates and links.
 </p>
 
         {nextRace && (

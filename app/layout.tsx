@@ -22,7 +22,7 @@ title: {
 },
 
 description:
-  "The ultimate Montenegro Running Calendar. Discover trail races, road races, mountain runs, ultras and running events across Montenegro and the Balkans.",
+  "The ultimate Montenegro Running Calendar. Discover trail races, road races, mountain runs, ultras and running events across Montenegro.",
 
 robots: {
   index: true,

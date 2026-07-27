@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://runningkalender.vercel.app/"),
 
 title: {
-  default: "Montenegro Running Calendar 2026 | All Trail, Road & Ultra Races",
+  default: "Montenegro Running Calendar | Trail, Road & Ultra Races",
   template: "%s | Montenegro Running Calendar",
 },
 
 description:
-  "The complete Montenegro Running Calendar. Find every trail race, road race, ultra marathon and mountain running event in Montenegro and the Balkans.",
-
+  "The ultimate Montenegro Running Calendar. Discover trail races, road races, mountain runs, ultras and running events across Montenegro and the Balkans."
+  
 robots: {
   index: true,
   follow: true,

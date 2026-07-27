@@ -239,7 +239,22 @@ const upcoming = nextRace ? upcomingAll.filter(r => r.date !== nextRace.date) : 
 
   const langPack = t[lang]
 
-  return (
+return (
+  <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Montenegro Running Calendar",
+          url: "https://runningkalender.vercel.app/",
+          description:
+            "The complete calendar of trail races, road races and ultra running events in Montenegro and the Balkans.",
+        }),
+      }}
+    />
+
     <div style={{ background: "#f4f5f7", minHeight: "100vh", padding: 20 }}>
       <div style={{ maxWidth: 1000, margin: "0 auto" }}>
 
@@ -253,9 +268,10 @@ const upcoming = nextRace ? upcomingAll.filter(r => r.date !== nextRace.date) : 
            Montenegro Running Kalendar 🏃‍♂️
         </h1>
 
-        <p style={{ textAlign: "center", color: "#666" }}>
-          {langPack.discover}
-        </p>
+     <p style={{ textAlign: "center", color: "#666", maxWidth: 700, margin: "0 auto" }}>
+  Find trail races, road races, ultra marathons and mountain running events across
+  Montenegro and the Balkans. Updated regularly with official race dates and links.
+</p>
 
         {nextRace && (
           <a href={nextRace.link || "#"} target="_blank">
@@ -356,6 +372,7 @@ const upcoming = nextRace ? upcomingAll.filter(r => r.date !== nextRace.date) : 
         {renderSection(langPack.past, groupByMonth(past))}
 
       </div>
-    </div>
-  )
+       </div>
+  </>
+)
 }

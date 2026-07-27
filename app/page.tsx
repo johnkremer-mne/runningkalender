@@ -121,13 +121,13 @@ const handleSend = async () => {
   const today = new Date()
   today.setHours(0,0,0,0)
 
-  const badgeColor = (type: string) => {
-    if (type === "road") return "#2563eb"
-    if (type === "trail") return "#16a34a"
-    if (type === "ultra") return "#dc2626"
-    return "#999"
-  }
-
+const badgeColor = (type: string) => {
+  if (type === "road") return "#2563eb"
+  if (type === "trail") return "#16a34a"
+  if (type === "ultra") return "#dc2626"
+  if (type === "multi-stage-trail") return "#9333ea"
+  return "#999"
+}
   const getCountdown = (date: string) => {
     const today = new Date()
     const target = new Date(date)
@@ -156,7 +156,9 @@ const handleSend = async () => {
   })
 
  const nextRace = upcomingAll.length > 0 ? upcomingAll[0] : null
-const upcoming = nextRace ? upcomingAll.filter(r => r.date !== nextRace.date) : upcomingAll
+const upcoming = nextRace
+  ? upcomingAll.filter(r => r.name !== nextRace.name)
+  : upcomingAll
 
   const past = filtered.filter(r => {
     const d = new Date(r.date)
